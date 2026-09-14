@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz | IFsaudavel</title>
+<meta name="description" content="Quiz educativo do projeto IFsaudavel sobre hábitos saudáveis.">
+<link rel="stylesheet" href="style.css">
+<style>
+.quiz-page{padding:110px 0 60px;background:linear-gradient(180deg,#f4fff8,#fff)}
+.quiz-card{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;padding:32px;box-shadow:0 10px 35px rgba(0,0,0,.08)}
+.quiz-question{border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin:18px 0}
+.quiz-question h3{margin:0 0 16px;font-size:1.08rem}
+.quiz-option{display:block;width:100%;text-align:left;padding:13px 15px;margin:9px 0;border:1px solid #d8dee5;border-radius:10px;background:#fff;cursor:pointer;font-size:1rem}
+.quiz-option:hover{background:#f4faf6}.quiz-option.correct{background:#dff5e7;border-color:#2e9b59}.quiz-option.wrong{background:#fde4e4;border-color:#d9534f}.quiz-option:disabled{cursor:default;opacity:1}
+#quizResult{display:none;text-align:center;margin-top:25px;padding:24px;border-radius:16px;background:#eef9f1}.quiz-progress{font-weight:600;margin:12px 0 20px}.quiz-actions{text-align:center;margin-top:25px}
+
+.quiz-hero{padding:74px 0 40px;background:linear-gradient(135deg,#17372a 0%,#2e7d5b 100%);color:#fff;position:relative;overflow:hidden}.quiz-hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07);right:-80px;top:-90px}.quiz-hero .section-title{margin-bottom:0;position:relative;z-index:1}.quiz-hero .tag{color:#bde8c9}.quiz-hero h1{color:#fff;font-size:clamp(2.3rem,5vw,4rem)}.quiz-hero p{color:#e2f0e6}.quiz-page{padding:35px 0 75px;background:linear-gradient(180deg,#f2f8f4 0%,#fff 55%)}.quiz-card{max-width:920px;border-radius:26px;padding:28px;box-shadow:0 18px 50px rgba(23,55,42,.12);border:1px solid #e1ebe4}.quiz-progress-wrap{display:flex;align-items:center;gap:14px;margin:0 0 24px}.quiz-progress{font-weight:800;color:var(--green);margin:0;white-space:nowrap}.quiz-progress-line{height:9px;background:#e2ebe5;border-radius:99px;overflow:hidden;flex:1}.quiz-progress-line span{display:block;width:0;height:100%;background:var(--green);border-radius:99px;transition:.3s}.quiz-question{border:1px solid #e2ebe5;border-radius:18px;padding:24px;margin:16px 0;background:#fff;box-shadow:0 5px 18px rgba(23,55,42,.04)}.quiz-question h3{margin:0 0 17px;font-size:1.08rem;color:var(--dark)}.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;margin:9px 0;border:1px solid #d8e3dc;border-radius:12px;background:#fff;cursor:pointer;font-size:1rem;color:var(--text);transition:.18s}.quiz-option:hover{border-color:var(--green);background:#f4faf6;transform:translateX(2px)}.quiz-option.correct{background:#e2f6e8;border-color:#2e9b59}.quiz-option.wrong{background:#fde8e8;border-color:#d9534f}.quiz-option:disabled{cursor:default;opacity:1}.quiz-feedback{font-size:.9rem;font-weight:700;margin-top:10px}.quiz-result{display:none;text-align:center;margin-top:26px;padding:28px;border-radius:20px;background:#edf8f0;border:1px solid #d4e9da;color:var(--dark)}.quiz-result h2{margin-top:0;font-size:2rem}.score-big{font-size:2.6rem;font-weight:900;color:var(--green);margin:6px 0}.quiz-actions{text-align:center;margin-top:26px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.quiz-tip{text-align:center;color:var(--muted);font-size:.88rem;margin-top:18px}
+</style>
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" class="ifs-logo-header"><span>🌱</span> IFsaudavel</a>
+<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<nav class="menu"><a href="index.html#inicio">Início</a><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a><a href="quiz.html" aria-current="page">Quiz</a><a href="index.html#fontes">Fontes</a></nav>
+</div></header>
+<section class="quiz-hero"><div class="container"><div class="section-title"><span class="tag">DESAFIO IFSAUDAVEL</span><h1>Teste seus conhecimentos 🌱</h1><p>10 perguntas rápidas sobre alimentação, hidratação, sono, movimento e bem-estar.</p></div></div></section>
+<main class="quiz-page"><div class="container"><div class="quiz-card">
+<div class="quiz-progress-wrap"><div class="quiz-progress" id="progress">0 de 10 respondidas</div><div class="quiz-progress-line"><span id="progressBar"></span></div></div>
+<div id="quizArea"></div>
+<div id="quizResult"></div>
+<div class="quiz-actions"><a class="btn secondary" href="index.html">← Voltar para o site</a><button class="btn primary" type="button" id="retryTop">Refazer quiz</button></div><p class="quiz-tip">Escolha uma alternativa em cada pergunta. No final, veja sua pontuação.</p>
+</div></div></main>
+<script>
+(function(){
+'use strict';
+const questions=[
+['Qual é uma característica de uma alimentação equilibrada?',['Eliminar grupos inteiros de alimentos','Buscar variedade e equilíbrio','Pular refeições todos os dias','Seguir a mesma dieta de outra pessoa'],1],
+['Por que a hidratação é importante?',['Porque substitui todas as refeições','Porque participa de funções do organismo','Porque evita qualquer doença','Porque elimina a necessidade de dormir'],1],
+['Quantas horas de sono por noite são geralmente recomendadas para adolescentes?',['3 a 4 horas','5 a 6 horas','8 a 10 horas','12 a 14 horas'],2],
+['Qual opção representa uma forma de movimento?',['Dança','Ficar sentado o dia todo','Pular refeições','Dormir menos'],0],
+['Cuidar do bem-estar emocional pode incluir:',['Nunca conversar sobre problemas','Ter lazer e buscar apoio quando necessário','Ignorar sentimentos','Evitar todas as pessoas'],1],
+['O objetivo principal de hábitos saudáveis deve ser:',['Comparar corpos','Buscar aparência perfeita','Cuidar da saúde e qualidade de vida','Fazer dietas extremas'],2],
+['O que pode ajudar na rotina de sono?',['Horários relativamente regulares','Usar telas sem pausa até dormir','Dormir cada dia em horário totalmente diferente','Evitar qualquer momento de descanso'],0],
+['Sobre atividade física, é correto afirmar:',['Só vale se for esporte competitivo','Deve ser escolhida de forma segura e adequada','É necessário se comparar com outras pessoas','A aparência é o objetivo principal'],1],
+['Quando uma questão de saúde exige orientação individual, o ideal é:',['Copiar a rotina de alguém','Buscar um profissional de saúde','Seguir qualquer dica da internet','Ignorar o problema'],1],
+['O checklist deste site serve para:',['Dar uma nota para sua saúde','Estimular reflexão sobre a rotina','Comparar estudantes','Criar uma dieta personalizada'],1]
+];
+const area=document.getElementById('quizArea'), progress=document.getElementById('progress'), result=document.getElementById('quizResult'), progressBar=document.getElementById('progressBar');
+let score=0, answered=0;
+function render(){
+ questions.forEach((item,i)=>{
+  const box=document.createElement('section'); box.className='quiz-question';
+  const h=document.createElement('h3'); h.textContent=(i+1)+'. '+item[0]; box.appendChild(h);
+  item[1].forEach((answer,j)=>{
+   const btn=document.createElement('button'); btn.type='button'; btn.className='quiz-option'; btn.textContent=String.fromCharCode(65+j)+') '+answer;
+   btn.addEventListener('click',function(){
+    if(box.dataset.answered==='true') return; box.dataset.answered='true'; answered++; progress.textContent=answered+' de 10 respondidas'; progressBar.style.width=(answered/10*100)+'%';
+    const buttons=box.querySelectorAll('.quiz-option'); buttons.forEach(b=>b.disabled=true); const feedback=document.createElement('div'); feedback.className='quiz-feedback'; feedback.textContent=j===item[2]?'✓ Resposta correta!':'Resposta incorreta. A alternativa correta está destacada.'; box.appendChild(feedback);
+    if(j===item[2]){btn.classList.add('correct');score++;}else{btn.classList.add('wrong');buttons[item[2]].classList.add('correct');}
+    if(answered===questions.length){result.style.display='block';result.innerHTML='<h2>Resultado final</h2><div class="score-big">'+score+'/10</div><p>Você acertou <strong>'+score+' de 10</strong> perguntas.</p><p>'+ (score>=8?'Excelente! Você mandou muito bem. 🌟':score>=5?'Muito bom! Continue aprendendo sobre hábitos saudáveis. 💚':'Continue explorando o IFsaudavel e aprenda mais sobre saúde e bem-estar. 🌱') +'</p><button type="button" class="btn primary" id="retry">Refazer quiz</button>';document.getElementById('retry').addEventListener('click',()=>location.reload());}
+   }); box.appendChild(btn);
+  }); area.appendChild(box);
+ });
+}
+render(); document.getElementById('retryTop').addEventListener('click',()=>location.reload());
+const menuBtn=document.querySelector('.menu-btn'),menu=document.querySelector('.menu');
+if(menuBtn&&menu){menuBtn.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false');});}
+})();
+</script>
+</body></html>

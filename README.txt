@@ -1,26 +1,33 @@
-VIDA SAUDÁVEL — VERSÃO PRONTA PARA GITHUB PAGES
+IFsaudavel — Projeto escolar
 
-Projeto escolar desenvolvido no IFS Campus Lagarto.
+Site educativo do IFS Campus Lagarto.
 
-ARQUIVOS
-- index.html — estrutura, conteúdo e SEO básico
-- style.css — visual e responsividade
-- script.js — menu, hidratação, checklist e quiz
-- ifs-logo.png — logo local do IFS, para não depender de link externo
+Arquivos:
+- index.html — página principal
+- quiz.html — quiz separado, acessível pelo menu superior
+- style.css — estilos
+- script.js — interações
 
-COMO TESTAR NO COMPUTADOR
-1. Mantenha todos os arquivos na mesma pasta.
-2. Abra index.html no navegador.
-
-COMO PUBLICAR NO GITHUB PAGES
-1. Crie um repositório público chamado IFsaudavel no GitHub.
-2. Envie index.html, style.css, script.js e ifs-logo.png para a raiz do repositório.
+Publicação no GitHub Pages:
+1. Crie um repositório público chamado IFsaudavel.
+2. Envie os arquivos deste diretório para a raiz do repositório.
 3. Vá em Settings > Pages.
-4. Em Build and deployment, selecione Deploy from a branch.
-5. Escolha a branch main e a pasta / (root).
-6. Clique em Save.
-7. Aguarde a publicação. O endereço será semelhante a:
-   https://SEU-USUARIO.github.io/IFsaudavel/
+4. Selecione Deploy from a branch, branch main e pasta / (root).
+5. Salve e aguarde a publicação.
 
-OBSERVAÇÃO
-O conteúdo é educativo e não substitui orientação profissional de saúde.
+Fontes e referências utilizadas no conteúdo educativo:
+- Organização Mundial da Saúde (OMS) — Physical activity:
+  https://www.who.int/news-room/fact-sheets/detail/physical-activity
+- Organização Mundial da Saúde (OMS) — Healthy diet:
+  https://www.who.int/news-room/fact-sheets/detail/healthy-diet
+- Ministério da Saúde — Guia Alimentar para a População Brasileira:
+  https://www.gov.br/saude/pt-br/assuntos/saude-brasil/publicacoes-para-promocao-a-saude/guia_alimentar_populacao_brasileira_2ed.pdf/view
+- Ministério da Saúde — Guia de Atividade Física para a População Brasileira:
+  https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2021/guia-de-atividade-fisica-para-a-populacao-brasileira.pdf
+- Ministério da Saúde — Publicações de Guias Alimentares:
+  https://www.gov.br/saude/pt-br/composicao/saps/promocao-da-saude/guias-alimentares/publicacoes
+
+Observação: o conteúdo do site é uma adaptação educativa e resumida das referências acima e não substitui orientação individual de profissionais de saúde.
+
+
+Incluída a página avaliacao.html com questionário de opinião sobre o site.

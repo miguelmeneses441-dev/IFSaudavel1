@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação | IFsaudavel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="index.html"><span>🌱</span> IFsaudavel</a>
+<button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+<nav class="menu">
+<a href="index.html">Início</a><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a><a href="quiz.html">Quiz</a><a href="index.html#fontes">Fontes</a><a href="avaliacao.html" class="active">Avaliação</a>
+</nav></div></header>
+<main>
+<section class="avaliacao-hero"><div class="container avaliacao-hero-inner">
+<div><span class="tag">SUA OPINIÃO IMPORTA</span><h1>Ajude a deixar o <span>IFsaudavel</span> ainda melhor.</h1><p>Conte o que você achou do nosso conteúdo, do visual e da experiência no site. É rápido e ajuda muito no nosso projeto.</p></div>
+<div class="feedback-card"><div class="feedback-icon">💚</div><strong>Vamos ouvir você!</strong><span>Responda com sinceridade.</span></div>
+</div></section>
+<section class="section soft"><div class="container">
+<div class="section-title"><span class="tag">AVALIAÇÃO DO SITE</span><h2>O que você achou?</h2><p>Não existe resposta certa. Queremos saber sua experiência.</p></div>
+<form id="avaliacaoForm">
+<div class="avaliacao-grid">
+<div class="avaliacao-card"><div class="q-number">01</div><h2>Como você avalia o visual do site?</h2><div class="choice-grid"><label><input type="radio" name="visual" value="Muito bom" required><span>😍 Muito bom</span></label><label><input type="radio" name="visual" value="Bom"><span>🙂 Bom</span></label><label><input type="radio" name="visual" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="visual" value="Precisa melhorar"><span>🔧 Precisa melhorar</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">02</div><h2>As informações foram fáceis de entender?</h2><div class="choice-grid"><label><input type="radio" name="info" value="Muito fáceis" required><span>Muito fáceis</span></label><label><input type="radio" name="info" value="Fáceis"><span>Fáceis</span></label><label><input type="radio" name="info" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="info" value="Difíceis"><span>Difíceis</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">03</div><h2>Qual parte você mais gostou?</h2><div class="choice-grid"><label><input type="radio" name="parte" value="Alimentação" required><span>🥗 Alimentação</span></label><label><input type="radio" name="parte" value="Hidratação"><span>💧 Hidratação</span></label><label><input type="radio" name="parte" value="Sono"><span>😴 Sono</span></label><label><input type="radio" name="parte" value="Movimento"><span>🏃 Movimento</span></label><label><input type="radio" name="parte" value="Bem-estar"><span>🧠 Bem-estar</span></label><label><input type="radio" name="parte" value="Quiz"><span>🎯 Quiz</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">04</div><h2>O que você achou do Quiz?</h2><div class="choice-grid"><label><input type="radio" name="quiz" value="Muito bom" required><span>⭐ Muito bom</span></label><label><input type="radio" name="quiz" value="Bom"><span>👍 Bom</span></label><label><input type="radio" name="quiz" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="quiz" value="Não gostei"><span>👎 Não gostei</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">05</div><h2>O site é fácil de navegar?</h2><div class="choice-grid"><label><input type="radio" name="nav" value="Sim, muito" required><span>Sim, muito</span></label><label><input type="radio" name="nav" value="Sim"><span>Sim</span></label><label><input type="radio" name="nav" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="nav" value="Não"><span>Não</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">06</div><h2>As informações parecem confiáveis?</h2><div class="choice-grid"><label><input type="radio" name="confianca" value="Sim" required><span>✅ Sim</span></label><label><input type="radio" name="confianca" value="Em parte"><span>Em parte</span></label><label><input type="radio" name="confianca" value="Não"><span>Não</span></label></div></div>
+<div class="avaliacao-card full"><div class="q-number">07</div><h2>O que podemos melhorar?</h2><p class="helper">Pode falar sobre conteúdo, visual, navegação ou qualquer outra coisa.</p><textarea name="melhorar" placeholder="Sua sugestão..."></textarea></div>
+<div class="avaliacao-card full"><div class="q-number">08</div><h2>O que você mais gostou?</h2><p class="helper">Queremos saber o que funcionou bem.</p><textarea name="gostou" placeholder="O que você mais curtiu no IFsaudavel?"></textarea></div>
+<div class="avaliacao-card"><div class="q-number">09</div><h2>Você aprendeu algo novo?</h2><div class="choice-grid"><label><input type="radio" name="aprendeu" value="Sim" required><span>🎉 Sim</span></label><label><input type="radio" name="aprendeu" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="aprendeu" value="Não"><span>Não</span></label></div></div>
+<div class="avaliacao-card"><div class="q-number">10</div><h2>Você recomendaria o site?</h2><div class="choice-grid"><label><input type="radio" name="recomendaria" value="Sim" required><span>👍 Sim</span></label><label><input type="radio" name="recomendaria" value="Talvez"><span>🤔 Talvez</span></label><label><input type="radio" name="recomendaria" value="Não"><span>👎 Não</span></label></div></div>
+<div class="avaliacao-card full nota-card"><div class="q-number">11</div><h2>De 0 a 10, qual nota você daria?</h2><div class="nota-wrap"><input id="nota" type="range" name="nota" min="0" max="10" value="10"><div class="nota-num"><strong id="notaValor">10</strong><small>/10</small></div></div></div>
+<div class="avaliacao-card full"><div class="q-number">12</div><h2>Deixe um comentário final</h2><textarea name="comentario" placeholder="Uma mensagem para a equipe do IFsaudavel..."></textarea></div>
+</div>
+<div class="submit-area"><button class="avaliacao-btn" type="submit">Enviar minha avaliação <span>→</span></button><p>🌱 Obrigado por contribuir com o projeto IFsaudavel.</p></div>
+</form>
+<div id="mensagem" class="success-box" hidden><div>🎉</div><div><h2>Obrigado pela avaliação!</h2><p>Sua opinião é muito importante para ajudar nossa equipe a melhorar o IFsaudavel.</p><a href="index.html" class="btn primary">Voltar para o site</a></div></div>
+</div></section></main>
+<footer><div class="container"><div class="copyright">IFsaudavel • Projeto educativo sobre hábitos saudáveis 🌱</div></div></footer>
+<script>
+const range=document.getElementById('nota'), value=document.getElementById('notaValor');
+range.addEventListener('input',()=>value.textContent=range.value);
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNM_BRHjm9axd6dF2AFU01YPwkLXNcNI4OTlN20NH_PezA-sMaIlCTji2Vs0bQYyc7/exec';
+const form = document.getElementById('avaliacaoForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const button = form.querySelector('button[type="submit"]');
+  if (APPS_SCRIPT_URL.includes('COLE_AQUI')) {
+    alert('A avaliação ainda não está conectada à planilha. Configure a URL do Google Apps Script no arquivo avaliacao.html.');
+    return;
+  }
+  button.disabled = true;
+  button.innerHTML = 'Enviando...';
+  const data = new URLSearchParams();
+  data.append('timestamp', new Date().toISOString());
+  new FormData(form).forEach((value, key) => data.append(key, value));
+  try {
+    await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data });
+    form.style.display = 'none';
+    const msg = document.getElementById('mensagem');
+    msg.hidden = false;
+    msg.scrollIntoView({behavior:'smooth', block:'center'});
+  } catch (err) {
+    button.disabled = false;
+    button.innerHTML = 'Enviar minha avaliação <span>→</span>';
+    alert('Não foi possível enviar agora. Tente novamente.');
+  }
+});
+</script>
+</body></html>
