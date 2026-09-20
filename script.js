@@ -1,16 +1,119 @@
-const menuBtn=document.querySelector('.menu-btn');menuBtn.setAttribute('aria-expanded','false');const menu=document.querySelector('.menu');menuBtn.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open);});document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-const waterBtn=document.getElementById('waterBtn');const waterMsg=document.getElementById('waterMsg');if(waterBtn&&waterMsg){waterBtn.addEventListener('click',()=>{waterMsg.textContent='Ótimo! 💧 Continue lembrando de se hidratar ao longo do dia.';waterBtn.textContent='✓ Registrado';waterBtn.disabled=true;});}
-const checks=[...document.querySelectorAll('.checklist input')];const bar=document.getElementById('progressBar');const progressText=document.getElementById('progressText');function updateProgress(){const n=checks.filter(c=>c.checked).length;bar.style.width=(n/5*100)+'%';progressText.textContent=`${n}/5 concluídos`;}checks.forEach(c=>c.addEventListener('change',updateProgress));
-const questions=[
-{q:'Qual é uma característica de uma alimentação equilibrada?',a:['Eliminar grupos inteiros de alimentos','Buscar variedade e equilíbrio','Pular refeições todos os dias','Seguir a mesma dieta de outra pessoa'],c:1},
-{q:'Por que a hidratação é importante?',a:['Porque substitui todas as refeições','Porque participa de funções do organismo','Porque evita qualquer doença','Porque elimina a necessidade de dormir'],c:1},
-{q:'Quantas horas de sono por noite são geralmente recomendadas para adolescentes?',a:['3 a 4 horas','5 a 6 horas','8 a 10 horas','12 a 14 horas'],c:2},
-{q:'Qual opção representa uma forma de movimento?',a:['Dança','Ficar sentado o dia todo','Pular refeições','Dormir menos'],c:0},
-{q:'Cuidar do bem-estar emocional pode incluir:',a:['Nunca conversar sobre problemas','Ter lazer e buscar apoio quando necessário','Ignorar sentimentos','Evitar todas as pessoas'],c:1},
-{q:'O objetivo principal de hábitos saudáveis deve ser:',a:['Comparar corpos','Buscar aparência perfeita','Cuidar da saúde e qualidade de vida','Fazer dietas extremas'],c:2},
-{q:'O que pode ajudar na rotina de sono?',a:['Horários relativamente regulares','Usar telas sem pausa até dormir','Dormir cada dia em horário totalmente diferente','Evitar qualquer momento de descanso'],c:0},
-{q:'Sobre atividade física, é correto afirmar:',a:['Só vale se for esporte competitivo','Deve ser escolhida de forma segura e adequada','É necessário se comparar com outras pessoas','A aparência é o objetivo principal'],c:1},
-{q:'Quando uma questão de saúde exige orientação individual, o ideal é:',a:['Copiar a rotina de alguém','Buscar um profissional de saúde','Seguir qualquer dica da internet','Ignorar o problema'],c:1},
-{q:'O checklist deste site serve para:',a:['Dar uma nota para sua saúde','Estimular reflexão sobre a rotina','Comparar estudantes','Criar uma dieta personalizada'],c:1}
-];
-const area=document.getElementById('quizArea');let score=0,answered=0;if(area) questions.forEach((item,i)=>{const box=document.createElement('div');box.className='question';box.innerHTML=`<h3>${i+1}. ${item.q}</h3><div class="options"></div>`;const opts=box.querySelector('.options');item.a.forEach((text,j)=>{const b=document.createElement('button');b.className='option';b.textContent=text;b.addEventListener('click',()=>{if(box.dataset.done)return;box.dataset.done='1';answered++;if(j===item.c){b.classList.add('correct');score++;}else{b.classList.add('wrong');opts.children[item.c].classList.add('correct');}if(answered===questions.length)showResult();});opts.appendChild(b);});area.appendChild(box);});function showResult(){const r=document.createElement('div');r.className='quiz-result';r.innerHTML=`<h3>Resultado 🎉</h3><p>Você acertou <strong>${score} de ${questions.length}</strong> perguntas.</p><button class="btn primary" onclick="location.reload()">Refazer quiz</button>`;area.appendChild(r);}
+/* IFsaudavel — interações e animações (compartilhado entre as páginas) */
+
+/* Menu mobile (hambúrguer) */
+(function () {
+  const menuBtn = document.querySelector('.menu-btn');
+  const menu = document.querySelector('.menu');
+  if (!menuBtn || !menu) return;
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.menu a').forEach((a) =>
+    a.addEventListener('click', () => menu.classList.remove('open'))
+  );
+})();
+
+/* Cabeçalho ganha sombra ao rolar a página */
+(function () {
+  const header = document.querySelector('.header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* Animação de entrada ao rolar (fade/stagger) */
+(function () {
+  const items = document.querySelectorAll('.reveal, .stagger');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  items.forEach((el) => io.observe(el));
+})();
+
+/* Contagem animada dos números em destaque (ex.: mini-stats) */
+(function () {
+  const nums = document.querySelectorAll('[data-count]');
+  if (!nums.length) return;
+  const animate = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    const duration = 900;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = Math.floor(p * target);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  };
+  if (!('IntersectionObserver' in window)) {
+    nums.forEach(animate);
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  nums.forEach((el) => io.observe(el));
+})();
+
+/* Botão flutuante "voltar ao topo" */
+(function () {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const toggle = () => btn.classList.toggle('show', window.scrollY > 420);
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+/* Lembrete de hidratação (seção Hidratação, na página inicial) */
+(function () {
+  const waterBtn = document.getElementById('waterBtn');
+  const waterMsg = document.getElementById('waterMsg');
+  if (!waterBtn || !waterMsg) return;
+  waterBtn.addEventListener('click', () => {
+    waterMsg.textContent = 'Ótimo! 💧 Continue lembrando de se hidratar ao longo do dia.';
+    waterBtn.textContent = '✓ Registrado';
+    waterBtn.disabled = true;
+    waterBtn.classList.add('pop');
+    waterMsg.classList.add('pop');
+  });
+})();
+
+/* Checklist de hábitos com barra de progresso animada */
+(function () {
+  const checks = [...document.querySelectorAll('.checklist input')];
+  if (!checks.length) return;
+  const bar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  const update = () => {
+    const n = checks.filter((c) => c.checked).length;
+    bar.style.width = (n / checks.length) * 100 + '%';
+    progressText.textContent = `${n}/${checks.length} concluídos`;
+  };
+  checks.forEach((c) => c.addEventListener('change', update));
+})();
