@@ -31,3 +31,6 @@ Observação: o conteúdo do site é uma adaptação educativa e resumida das re
 
 
 Incluída a página avaliacao.html com questionário de opinião sobre o site.
+
+
+IFsaudavel 3.0 — versão com identidade visual premium, responsividade aprimorada, acessibilidade e microinterações.

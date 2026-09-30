@@ -117,3 +117,71 @@
   };
   checks.forEach((c) => c.addEventListener('change', update));
 })();
+
+
+/* ===== Acessibilidade IFsaudavel ===== */
+(function () {
+  const body = document.body;
+  const savedTheme = localStorage.getItem('ifsaudavel-theme');
+  const savedFont = localStorage.getItem('ifsaudavel-font');
+  if (savedTheme === 'dark') body.classList.add('dark-mode');
+  if (savedTheme === 'contrast') body.classList.add('high-contrast');
+  if (savedFont) body.classList.add(savedFont);
+
+  const bind = (id, fn) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', fn);
+  };
+  bind('fontMinus', () => {
+    body.classList.remove('font-xlarge');
+    body.classList.add('font-large');
+    localStorage.setItem('ifsaudavel-font','font-large');
+  });
+  bind('fontReset', () => {
+    body.classList.remove('font-large','font-xlarge');
+    localStorage.removeItem('ifsaudavel-font');
+  });
+  bind('fontPlus', () => {
+    body.classList.remove('font-large');
+    body.classList.add('font-xlarge');
+    localStorage.setItem('ifsaudavel-font','font-xlarge');
+  });
+  bind('contrastToggle', () => {
+    body.classList.toggle('high-contrast');
+    body.classList.remove('dark-mode');
+    localStorage.setItem('ifsaudavel-theme', body.classList.contains('high-contrast') ? 'contrast' : 'normal');
+  });
+  bind('themeToggle', () => {
+    body.classList.toggle('dark-mode');
+    body.classList.remove('high-contrast');
+    localStorage.setItem('ifsaudavel-theme', body.classList.contains('dark-mode') ? 'dark' : 'normal');
+  });
+})();
+
+
+/* ===== IFsaudavel 3.0 — microinterações ===== */
+(function(){
+  const bar=document.getElementById('readingProgress');
+  const update=()=>{if(!bar)return;const max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?(window.scrollY/max)*100:0)+'%';};
+  update(); window.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update);
+})();
+(function(){
+  const links=[...document.querySelectorAll('.menu a[href^="#"]')];
+  const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if(!sections.length||!('IntersectionObserver' in window))return;
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.removeAttribute('aria-current'));const a=links.find(x=>x.getAttribute('href')==='#'+e.target.id);if(a)a.setAttribute('aria-current','page');}}),{rootMargin:'-35% 0px -55%'});
+  sections.forEach(s=>io.observe(s));
+})();
+(function(){
+  const checks=[...document.querySelectorAll('.checklist input')]; if(!checks.length)return;
+  const key='ifsaudavel-checklist';
+  try{const saved=JSON.parse(localStorage.getItem(key)||'[]');checks.forEach((c,i)=>c.checked=!!saved[i]);}catch(e){}
+  const original=()=>{};
+  const update=()=>{try{localStorage.setItem(key,JSON.stringify(checks.map(c=>c.checked)))}catch(e){}};
+  checks.forEach(c=>c.addEventListener('change',update));
+  checks.forEach(c=>c.dispatchEvent(new Event('change')));
+})();
+(function(){
+  document.querySelectorAll('.btn,.card,.source-item').forEach(el=>el.addEventListener('pointerdown',()=>{el.style.setProperty('--press','1')}));
+  document.querySelectorAll('.btn,.card,.source-item').forEach(el=>el.addEventListener('pointerup',()=>{el.style.removeProperty('--press')}));
+})();

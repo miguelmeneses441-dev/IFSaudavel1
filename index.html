@@ -9,12 +9,23 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#conteudos">Pular para o conteúdo</a>
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <div class="accessibility-bar" aria-label="Ferramentas de acessibilidade">
+      <button type="button" id="fontMinus" aria-label="Diminuir tamanho da fonte">A−</button>
+      <button type="button" id="fontReset" aria-label="Restaurar tamanho da fonte">A</button>
+      <button type="button" id="fontPlus" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="contrastToggle" aria-label="Ativar alto contraste">◐ Contraste</button>
+      <button type="button" id="themeToggle" aria-label="Alternar modo escuro">🌙</button>
+    </div>
+    
 <header class="header">
   <div class="container nav">
     <a class="logo" href="#inicio"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" class="ifs-logo-header"><span>🌱</span> IFsaudavel</a>
     <button class="menu-btn" aria-label="Abrir menu">☰</button>
     <nav class="menu">
-      <a href="#inicio">Início</a><a href="#alimentacao">Alimentação</a><a href="#hidratacao">Hidratação</a><a href="#sono">Sono</a><a href="#movimento">Movimento</a><a href="#bem-estar">Bem-estar</a><a href="quiz.html">Quiz</a><a href="#fontes">Fontes</a>
+      <a href="#inicio">Início</a><a href="#alimentacao">Alimentação</a><a href="#hidratacao">Hidratação</a><a href="#sono">Sono</a><a href="#movimento">Movimento</a><a href="#bem-estar">Bem-estar</a><a href="quiz.html">Quiz</a><a href="#sobre">Projeto</a><a href="#fontes">Fontes</a>
       <a href="avaliacao.html">Avaliação</a>
     </nav>
   </div>
@@ -28,7 +39,7 @@
       <span class="tag">PROJETO ESCOLAR</span>
       <h1>Pequenas atitudes podem transformar sua <span>qualidade de vida.</span></h1>
       <p>Um espaço educativo para conhecer hábitos relacionados à alimentação, hidratação, sono, movimento e bem-estar.</p>
-      <div class="buttons"><a class="btn primary" href="#conteudos">Explorar conteúdos</a></div>
+      <div class="buttons"><a class="btn primary" href="#conteudos">Explorar conteúdos</a><a class="btn secondary" href="quiz.html">🎯 Fazer o quiz</a></div>
     </div>
     <div class="hero-card reveal-scale"><div class="plant">🌿</div><h3>Cuide da sua rotina</h3><p>Saúde é construída por escolhas possíveis e equilibradas no dia a dia.</p><div class="mini-stats"><div><strong data-count="5">0</strong><small>temas</small></div><div><strong data-count="10">0</strong><small>perguntas</small></div><div><strong data-count="1">0</strong><small>objetivo: aprender</small></div></div></div>
   </div></div>
@@ -59,12 +70,48 @@
 
 
 
+<section class="impact-section"><div class="container impact-grid">
+<div class="impact-copy reveal"><span class="tag">IFSAUDAVEL EM 30 SEGUNDOS</span><h2>Informação simples. Escolhas possíveis. Uma rotina mais consciente.</h2><p>O objetivo do projeto é tornar conteúdos sobre saúde mais fáceis de entender e transformar informação em pequenas atitudes do dia a dia.</p><div class="impact-actions"><a class="btn primary" href="quiz.html">🎯 Testar meus conhecimentos</a><a class="text-link" href="#sobre">Conhecer o projeto →</a></div></div>
+<div class="impact-panel reveal-scale"><div class="impact-ring"><span>5</span><small>pilares</small></div><div class="impact-list"><div><b>01</b><span>Alimentação</span></div><div><b>02</b><span>Hidratação</span></div><div><b>03</b><span>Sono</span></div><div><b>04</b><span>Movimento</span></div><div><b>05</b><span>Bem-estar</span></div></div></div>
+</div></section>
+
 <section id="fontes" class="section sources-section"><div class="container"><div class="section-title reveal"><span class="tag">FONTES E REFERÊNCIAS</span><h2>De onde vieram as informações?</h2><p>As informações educativas do IFsaudavel foram organizadas a partir de fontes oficiais e institucionais de saúde. Acesse os materiais originais para consultar os conteúdos completos.</p></div><div class="source-list stagger"><a class="source-item" href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener noreferrer"><div><strong>Organização Mundial da Saúde (OMS) — Atividade física</strong><span>Benefícios da atividade física, comportamento sedentário e recomendações por faixa etária.</span></div><span>↗</span></a><a class="source-item" href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer"><div><strong>Organização Mundial da Saúde (OMS) — Alimentação saudável</strong><span>Princípios de adequação, equilíbrio, moderação e diversidade na alimentação.</span></div><span>↗</span></a><a class="source-item" href="https://www.gov.br/saude/pt-br/assuntos/saude-brasil/publicacoes-para-promocao-a-saude/guia_alimentar_populacao_brasileira_2ed.pdf/view" target="_blank" rel="noopener noreferrer"><div><strong>Ministério da Saúde — Guia Alimentar para a População Brasileira</strong><span>Referência oficial brasileira para escolhas, combinação, preparo e consumo de alimentos.</span></div><span>↗</span></a><a class="source-item" href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2021/guia-de-atividade-fisica-para-a-populacao-brasileira.pdf" target="_blank" rel="noopener noreferrer"><div><strong>Ministério da Saúde — Guia de Atividade Física para a População Brasileira</strong><span>Recomendações brasileiras sobre atividade física em diferentes fases da vida.</span></div><span>↗</span></a><a class="source-item" href="https://www.gov.br/saude/pt-br/composicao/saps/promocao-da-saude/guias-alimentares/publicacoes" target="_blank" rel="noopener noreferrer"><div><strong>Ministério da Saúde — Publicações de Guias Alimentares</strong><span>Portal oficial com materiais e publicações complementares sobre alimentação adequada e saudável.</span></div><span>↗</span></a></div><div class="source-note"><strong>Observação:</strong> o texto do IFsaudavel é uma adaptação educativa e resumida. As fontes acima são referências para estudo; elas não substituem orientação individual de profissionais de saúde.</div></div></section>
 
-<section id="sobre" class="section"><div class="container about reveal"><div><span class="tag">SOBRE O PROJETO</span><h2>IFsaudavel</h2><p>Projeto escolar desenvolvido para apresentar informações básicas sobre hábitos relacionados à qualidade de vida de maneira acessível e interativa.</p></div><div class="team"><h3>Equipe</h3><p>👤 Miguel Meneses Santos De Oliveira</p><p>👤 Maria Eduarda Fernandes</p><p>👤 Maria Eduarda Melo</p><small>Projeto escolar · IFS Campus Lagarto</small></div></div></section>
+<section id="sobre" class="info-section project-section">
+  <div class="section-heading">
+    <span class="eyebrow">CONHEÇA O PROJETO</span>
+    <h2>Sobre o IFsaudavel</h2>
+    <p>Informação simples e educativa para incentivar hábitos mais saudáveis no dia a dia.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🎯 Nosso objetivo</h3>
+      <p>Apresentar informações acessíveis sobre alimentação, hidratação, sono, movimento e bem-estar, ajudando os visitantes a refletirem sobre seus hábitos.</p>
+    </div>
+    <div class="about-card">
+      <h3>👥 Integrantes</h3>
+      <ul class="members-list">
+        <li>Miguel Meneses Santos de Oliveira</li>
+        <li>Maria Eduarda Silva Melo</li>
+        <li>Maria Eduarda Fernandes</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-cta reveal">
+    <div><h3>Quer testar o que aprendeu?</h3><p>Faça o quiz do IFsaudavel e descubra quantas perguntas você consegue acertar.</p></div>
+    <a class="btn primary" href="quiz.html">Ir para o quiz →</a>
+  </div>
+</section>
+
 </main>
 
+
+<div class="health-disclaimer" role="note">
+  <strong>ℹ️ Aviso importante:</strong> O conteúdo do IFsaudavel tem finalidade educativa e não substitui a orientação de profissionais de saúde.
+</div>
+
 <footer><div class="container footer-grid"><div><div class="footer-brand"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto"><strong>🌱 IFsaudavel</strong></div><p>Informação para cuidar melhor de você.</p></div><div><strong>Fontes</strong><p>OMS · Ministério da Saúde</p><a href="#fontes">Ver todas as referências →</a></div></div><div class="copyright">Projeto escolar · 2026</div></footer>
+<nav class="mobile-quick-nav" aria-label="Atalhos rápidos"><a href="#inicio">⌂<span>Início</span></a><a href="#conteudos">◈<span>Temas</span></a><a href="quiz.html">✓<span>Quiz</span></a><a href="avaliacao.html">♡<span>Avaliar</span></a></nav>
 <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" type="button">↑</button>
 <script src="script.js"></script>
 </body>
