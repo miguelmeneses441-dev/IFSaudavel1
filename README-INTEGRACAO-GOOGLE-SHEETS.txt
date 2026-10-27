@@ -8,7 +8,7 @@ IFsaudavel — Integração da Avaliação com Google Sheets
 6. Execute o aplicativo como você (proprietário do script).
 7. Em acesso, escolha a opção que permita que qualquer pessoa com o link acesse.
 8. Clique em Implantar e copie a URL que termina em /exec.
-9. Abra avaliacao.html e localize:
+9. Abra avaliacao.js e localize:
    const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT';
 10. Substitua o texto entre aspas pela URL /exec copiada.
 11. Publique novamente os arquivos no GitHub Pages.

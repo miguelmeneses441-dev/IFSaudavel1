@@ -1,77 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Avaliação | IFsaudavel</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+<meta name="description" content="Conte o que você achou do IFsaudavel. Sua opinião ajuda o projeto a melhorar.">
+<meta name="theme-color" content="#123d2a">
+<meta property="og:title" content="Avaliação | IFsaudavel"><meta property="og:description" content="Conte o que você achou do IFsaudavel. Sua opinião ajuda o projeto a melhorar."><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('ifs-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)d.dataset.theme=t;var f=localStorage.getItem('ifs-fs');if(f)d.dataset.fs=f;if(localStorage.getItem('ifs-motion')==='reduce')d.dataset.motion='reduce'}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-<div class="accessibility-bar" aria-label="Ferramentas de acessibilidade"><button type="button" id="fontMinus" aria-label="Diminuir tamanho da fonte">A−</button><button type="button" id="fontReset" aria-label="Restaurar tamanho da fonte">A</button><button type="button" id="fontPlus" aria-label="Aumentar tamanho da fonte">A+</button><button type="button" id="contrastToggle" aria-label="Ativar alto contraste">◐ Contraste</button><button type="button" id="themeToggle" aria-label="Alternar modo escuro">🌙</button></div>
-<header class="header"><div class="container nav">
-<a class="logo" href="index.html"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" class="ifs-logo-header"><span>🌱</span> IFsaudavel</a>
-<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<nav class="menu">
-<a href="index.html">Início</a><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a><a href="quiz.html">Quiz</a><a href="index.html#fontes">Fontes</a><a href="avaliacao.html" class="active">Avaliação</a>
-</nav></div></header>
-<main>
-<section class="avaliacao-hero"><div class="container avaliacao-hero-inner">
-<div class="reveal"><span class="tag">SUA OPINIÃO IMPORTA</span><h1>Ajude a deixar o <span>IFsaudavel</span> ainda melhor.</h1><p>Conte o que você achou do nosso conteúdo, do visual e da experiência no site. É rápido e ajuda muito no nosso projeto.</p></div>
-<div class="feedback-card reveal-scale"><div class="feedback-icon">💚</div><strong>Vamos ouvir você!</strong><span>Responda com sinceridade.</span></div>
-</div></section>
-<section class="section soft"><div class="container">
-<div class="section-title reveal"><span class="tag">AVALIAÇÃO DO SITE</span><h2>O que você achou?</h2><p>Não existe resposta certa. Queremos saber sua experiência.</p></div>
-<form id="avaliacaoForm">
-<div class="avaliacao-grid stagger">
-<div class="avaliacao-card"><div class="q-number">01</div><h2>Como você avalia o visual do site?</h2><div class="choice-grid"><label><input type="radio" name="visual" value="Muito bom" required><span>😍 Muito bom</span></label><label><input type="radio" name="visual" value="Bom"><span>🙂 Bom</span></label><label><input type="radio" name="visual" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="visual" value="Precisa melhorar"><span>🔧 Precisa melhorar</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">02</div><h2>As informações foram fáceis de entender?</h2><div class="choice-grid"><label><input type="radio" name="info" value="Muito fáceis" required><span>Muito fáceis</span></label><label><input type="radio" name="info" value="Fáceis"><span>Fáceis</span></label><label><input type="radio" name="info" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="info" value="Difíceis"><span>Difíceis</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">03</div><h2>Qual parte você mais gostou?</h2><div class="choice-grid"><label><input type="radio" name="parte" value="Alimentação" required><span>🥗 Alimentação</span></label><label><input type="radio" name="parte" value="Hidratação"><span>💧 Hidratação</span></label><label><input type="radio" name="parte" value="Sono"><span>😴 Sono</span></label><label><input type="radio" name="parte" value="Movimento"><span>🏃 Movimento</span></label><label><input type="radio" name="parte" value="Bem-estar"><span>🧠 Bem-estar</span></label><label><input type="radio" name="parte" value="Quiz"><span>🎯 Quiz</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">04</div><h2>O que você achou do Quiz?</h2><div class="choice-grid"><label><input type="radio" name="quiz" value="Muito bom" required><span>⭐ Muito bom</span></label><label><input type="radio" name="quiz" value="Bom"><span>👍 Bom</span></label><label><input type="radio" name="quiz" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="quiz" value="Não gostei"><span>👎 Não gostei</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">05</div><h2>O site é fácil de navegar?</h2><div class="choice-grid"><label><input type="radio" name="nav" value="Sim, muito" required><span>Sim, muito</span></label><label><input type="radio" name="nav" value="Sim"><span>Sim</span></label><label><input type="radio" name="nav" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="nav" value="Não"><span>Não</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">06</div><h2>As informações parecem confiáveis?</h2><div class="choice-grid"><label><input type="radio" name="confianca" value="Sim" required><span>✅ Sim</span></label><label><input type="radio" name="confianca" value="Em parte"><span>Em parte</span></label><label><input type="radio" name="confianca" value="Não"><span>Não</span></label></div></div>
-<div class="avaliacao-card full"><div class="q-number">07</div><h2>O que podemos melhorar?</h2><p class="helper">Pode falar sobre conteúdo, visual, navegação ou qualquer outra coisa.</p><textarea name="melhorar" placeholder="Sua sugestão..."></textarea></div>
-<div class="avaliacao-card full"><div class="q-number">08</div><h2>O que você mais gostou?</h2><p class="helper">Queremos saber o que funcionou bem.</p><textarea name="gostou" placeholder="O que você mais curtiu no IFsaudavel?"></textarea></div>
-<div class="avaliacao-card"><div class="q-number">09</div><h2>Você aprendeu algo novo?</h2><div class="choice-grid"><label><input type="radio" name="aprendeu" value="Sim" required><span>🎉 Sim</span></label><label><input type="radio" name="aprendeu" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="aprendeu" value="Não"><span>Não</span></label></div></div>
-<div class="avaliacao-card"><div class="q-number">10</div><h2>Você recomendaria o site?</h2><div class="choice-grid"><label><input type="radio" name="recomendaria" value="Sim" required><span>👍 Sim</span></label><label><input type="radio" name="recomendaria" value="Talvez"><span>🤔 Talvez</span></label><label><input type="radio" name="recomendaria" value="Não"><span>👎 Não</span></label></div></div>
-<div class="avaliacao-card full nota-card"><div class="q-number">11</div><h2>De 0 a 10, qual nota você daria?</h2><div class="nota-wrap"><input id="nota" type="range" name="nota" min="0" max="10" value="10"><div class="nota-num"><strong id="notaValor">10</strong><small>/10</small></div></div></div>
-<div class="avaliacao-card full"><div class="q-number">12</div><h2>Deixe um comentário final</h2><textarea name="comentario" placeholder="Uma mensagem para a equipe do IFsaudavel..."></textarea></div>
-</div>
-<div class="submit-area"><button class="avaliacao-btn" type="submit">Enviar minha avaliação <span>→</span></button><p>🌱 Obrigado por contribuir com o projeto IFsaudavel.</p></div>
-</form>
-<div id="mensagem" class="success-box" hidden><div>🎉</div><div><h2>Obrigado pela avaliação!</h2><p>Sua opinião é muito importante para ajudar nossa equipe a melhorar o IFsaudavel.</p><a href="index.html" class="btn primary">Voltar para o site</a></div></div>
-</div></section></main>
-<footer><div class="container"><div class="copyright">IFsaudavel • Projeto educativo sobre hábitos saudáveis 🌱</div></div></footer>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html#inicio" aria-label="IFsaudavel — página inicial">
+      <img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" width="38" height="46" onerror="this.style.display='none'">
+      <span class="brand-name">🌱 IF<b>saudavel</b></span>
+    </a>
+    <nav class="menu" id="mainMenu" aria-label="Navegação principal">
+      <a href="index.html#inicio">Início</a>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="dropTemas">Temas <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="drop-menu" id="dropTemas"><a href="index.html#alimentacao">🍎 Alimentação</a><a href="index.html#hidratacao">💧 Hidratação</a><a href="index.html#sono">🌙 Sono</a><a href="index.html#movimento">🏃 Movimento</a><a href="index.html#bem-estar">🧠 Bem-estar</a></div>
+      </div>
+      <a href="index.html#checklist">Checklist</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="index.html#sobre">Projeto</a>
+      <a href="fontes.html">Fontes</a>
+      <a href="avaliacao.html" aria-current="page">Avaliação</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar modo claro/escuro" title="Modo claro/escuro">🌙</button>
+      <button class="icon-btn" id="a11yBtn" type="button" aria-label="Abrir opções de acessibilidade" aria-expanded="false" aria-controls="a11yPanel" title="Acessibilidade">Aa</button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    </div>
+  </div>
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Opções de acessibilidade">
+    <h2>♿ Acessibilidade <button class="icon-btn" type="button" id="a11yClose" aria-label="Fechar" style="width:34px;height:34px">✕</button></h2>
+    <div class="a11y-row"><span>Tamanho do texto</span>
+      <div class="seg" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontMinus" aria-label="Diminuir texto">A−</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão">A</button>
+        <button type="button" id="fontPlus" aria-label="Aumentar texto">A+</button>
+      </div></div>
+    <div class="a11y-row"><span>Aparência</span>
+      <div class="seg" role="group" aria-label="Aparência">
+        <button type="button" data-theme-set="light" aria-pressed="false">☀️ Claro</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">🌙 Escuro</button>
+        <button type="button" data-theme-set="contrast" aria-pressed="false">◐ Contraste</button>
+      </div></div>
+    <div class="a11y-row"><label class="switch"><span>Reduzir animações</span><input type="checkbox" id="motionToggle"></label></div>
+    <button class="btn secondary small" type="button" id="a11yResetAll" style="width:100%">Restaurar padrões</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#inicio"><span aria-hidden="true">🏠</span> Início</a>
+    <div class="group-title">Temas</div><a href="index.html#alimentacao"><span aria-hidden="true">🍎</span> Alimentação</a><a href="index.html#hidratacao"><span aria-hidden="true">💧</span> Hidratação</a><a href="index.html#sono"><span aria-hidden="true">🌙</span> Sono</a><a href="index.html#movimento"><span aria-hidden="true">🏃</span> Movimento</a><a href="index.html#bem-estar"><span aria-hidden="true">🧠</span> Bem-estar</a>
+    <div class="group-title">Explorar</div>
+    <a href="index.html#checklist"><span aria-hidden="true">✅</span> Checklist de hábitos</a>
+    <a href="quiz.html"><span aria-hidden="true">🎯</span> Quiz</a>
+    <a href="index.html#sobre"><span aria-hidden="true">👥</span> O projeto</a>
+    <a href="fontes.html"><span aria-hidden="true">📚</span> Fontes</a>
+    <a href="avaliacao.html" aria-current="page"><span aria-hidden="true">💬</span> Avaliação</a>
+  </div>
+</header>
+<main id="conteudo">
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Início</a> › Avaliação</div>
+    <span class="tag">Sua opinião importa</span>
+    <h1>Ajude a deixar o IFsaudavel ainda melhor.</h1>
+    <p>Conte o que você achou do conteúdo, do visual e da experiência no site. É rápido, anônimo e ajuda muito o nosso projeto.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container form-wrap">
+    <form id="avaliacaoForm" novalidate>
+      <div class="form-progress" aria-live="polite">
+        <div class="bar-row"><div class="bar" aria-hidden="true"><span id="formBar"></span></div><strong id="formText">0 de 8 respondidas</strong></div>
+      </div>
+      <div class="avaliacao-grid stagger">
+        <div class="avaliacao-card" data-req="visual"><div class="q-number">01</div><h2>Como você avalia o visual do site?</h2><div class="choice-grid"><label><input type="radio" name="visual" value="Muito bom"><span>😍 Muito bom</span></label><label><input type="radio" name="visual" value="Bom"><span>🙂 Bom</span></label><label><input type="radio" name="visual" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="visual" value="Precisa melhorar"><span>🔧 Precisa melhorar</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="info"><div class="q-number">02</div><h2>As informações foram fáceis de entender?</h2><div class="choice-grid"><label><input type="radio" name="info" value="Muito fáceis"><span>Muito fáceis</span></label><label><input type="radio" name="info" value="Fáceis"><span>Fáceis</span></label><label><input type="radio" name="info" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="info" value="Difíceis"><span>Difíceis</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="parte"><div class="q-number">03</div><h2>Qual parte você mais gostou?</h2><div class="choice-grid"><label><input type="radio" name="parte" value="Alimentação"><span>🥗 Alimentação</span></label><label><input type="radio" name="parte" value="Hidratação"><span>💧 Hidratação</span></label><label><input type="radio" name="parte" value="Sono"><span>😴 Sono</span></label><label><input type="radio" name="parte" value="Movimento"><span>🏃 Movimento</span></label><label><input type="radio" name="parte" value="Bem-estar"><span>🧠 Bem-estar</span></label><label><input type="radio" name="parte" value="Quiz"><span>🎯 Quiz</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="quiz"><div class="q-number">04</div><h2>O que você achou do Quiz?</h2><div class="choice-grid"><label><input type="radio" name="quiz" value="Muito bom"><span>⭐ Muito bom</span></label><label><input type="radio" name="quiz" value="Bom"><span>👍 Bom</span></label><label><input type="radio" name="quiz" value="Regular"><span>😐 Regular</span></label><label><input type="radio" name="quiz" value="Não gostei"><span>👎 Não gostei</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="nav"><div class="q-number">05</div><h2>O site é fácil de navegar?</h2><div class="choice-grid"><label><input type="radio" name="nav" value="Sim, muito"><span>Sim, muito</span></label><label><input type="radio" name="nav" value="Sim"><span>Sim</span></label><label><input type="radio" name="nav" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="nav" value="Não"><span>Não</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="confianca"><div class="q-number">06</div><h2>As informações parecem confiáveis?</h2><div class="choice-grid"><label><input type="radio" name="confianca" value="Sim"><span>✅ Sim</span></label><label><input type="radio" name="confianca" value="Em parte"><span>Em parte</span></label><label><input type="radio" name="confianca" value="Não"><span>Não</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card full"><div class="q-number">07</div><h2>O que podemos melhorar?</h2><p class="helper">Pode falar sobre conteúdo, visual, navegação ou qualquer outra coisa.</p><textarea name="melhorar" maxlength="600" placeholder="Sua sugestão..." aria-label="O que podemos melhorar"></textarea><div class="counter" data-for="melhorar">0/600</div></div>
+        <div class="avaliacao-card full"><div class="q-number">08</div><h2>O que você mais gostou?</h2><p class="helper">Queremos saber o que funcionou bem.</p><textarea name="gostou" maxlength="600" placeholder="O que você mais curtiu no IFsaudavel?" aria-label="O que você mais gostou"></textarea><div class="counter" data-for="gostou">0/600</div></div>
+        <div class="avaliacao-card" data-req="aprendeu"><div class="q-number">09</div><h2>Você aprendeu algo novo?</h2><div class="choice-grid"><label><input type="radio" name="aprendeu" value="Sim"><span>🎉 Sim</span></label><label><input type="radio" name="aprendeu" value="Mais ou menos"><span>Mais ou menos</span></label><label><input type="radio" name="aprendeu" value="Não"><span>Não</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card" data-req="recomendaria"><div class="q-number">10</div><h2>Você recomendaria o site?</h2><div class="choice-grid"><label><input type="radio" name="recomendaria" value="Sim"><span>👍 Sim</span></label><label><input type="radio" name="recomendaria" value="Talvez"><span>🤔 Talvez</span></label><label><input type="radio" name="recomendaria" value="Não"><span>👎 Não</span></label></div><div class="q-error">Escolha uma opção.</div></div>
+        <div class="avaliacao-card full"><div class="q-number">11</div><h2>De 0 a 10, qual nota você daria?</h2>
+          <div class="nota-wrap"><input id="nota" type="range" name="nota" min="0" max="10" value="10" aria-label="Nota de 0 a 10"><div class="nota-num"><span class="nota-emoji" id="notaEmoji" aria-hidden="true">🤩</span><strong id="notaValor">10</strong><small>/10</small></div></div></div>
+        <div class="avaliacao-card full"><div class="q-number">12</div><h2>Deixe um comentário final</h2><textarea name="comentario" maxlength="600" placeholder="Uma mensagem para a equipe do IFsaudavel..." aria-label="Comentário final"></textarea><div class="counter" data-for="comentario">0/600</div></div>
+      </div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="submit-area">
+        <button class="btn primary" type="submit" id="submitBtn">Enviar minha avaliação →</button>
+        <p>🌱 Obrigado por contribuir com o projeto IFsaudavel. Não pedimos nome, e-mail nem dados pessoais.</p>
+        <p id="formError" style="color:var(--bad);font-weight:700" role="alert"></p>
+      </div>
+    </form>
+
+    <div id="mensagem" class="success-box" hidden>
+      <div class="big" aria-hidden="true">🎉</div>
+      <div><h2>Obrigado pela avaliação!</h2><p>Sua opinião é muito importante para ajudar nossa equipe a melhorar o IFsaudavel.</p>
+        <div class="success-actions"><a href="index.html" class="btn primary">Voltar para o site</a><a href="quiz.html" class="btn secondary">Fazer o quiz</a></div></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" onerror="this.style.display='none'"><strong>🌱 IFsaudavel</strong></div>
+        <p>Informação simples e educativa para cuidar melhor de você. Projeto escolar do IFS · Campus Lagarto.</p>
+      </div>
+      <div><h4>Navegue</h4><a href="index.html#inicio">Início</a><a href="index.html#checklist">Checklist</a><a href="quiz.html">Quiz</a><a href="avaliacao.html">Avaliação</a></div>
+      <div><h4>Temas</h4><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a></div>
+      <div><h4>Projeto</h4><a href="index.html#sobre">Sobre</a><a href="fontes.html">Fontes e referências</a><a href="index.html#faq">Perguntas frequentes</a></div>
+    </div>
+    <div class="copyright"><span>Projeto escolar · IFS Campus Lagarto · 2026</span><span>Conteúdo educativo — não substitui orientação profissional.</span></div>
+  </div>
+</footer>
+<nav class="mobile-quick-nav" aria-label="Atalhos rápidos">
+  <a href="index.html#inicio"><span style="font-size:1.1rem" aria-hidden="true">🏠</span><span>Início</span></a>
+  <a href="index.html#conteudos"><span style="font-size:1.1rem" aria-hidden="true">🌿</span><span>Temas</span></a>
+  <a href="quiz.html"><span style="font-size:1.1rem" aria-hidden="true">🎯</span><span>Quiz</span></a>
+  <a href="avaliacao.html" aria-current="page"><span style="font-size:1.1rem" aria-hidden="true">💬</span><span>Avaliar</span></a>
+</nav>
 <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" type="button">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
 <script src="script.js"></script>
-<script>
-const range=document.getElementById('nota'), value=document.getElementById('notaValor'), notaNum=document.querySelector('.nota-num');
-range.addEventListener('input',()=>{value.textContent=range.value;notaNum.classList.remove('pop');void notaNum.offsetWidth;notaNum.classList.add('pop');});
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4XmlLq090gsw4dtgMLAJvzZw__4_yiyLy-DeeymqC5El4cKYEAg0a3P0HrI_q7Ltf/exec';
-const form = document.getElementById('avaliacaoForm');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const button = form.querySelector('button[type="submit"]');
-  if (APPS_SCRIPT_URL.includes('COLE_AQUI')) {
-    alert('A avaliação ainda não está conectada à planilha. Configure a URL do Google Apps Script no arquivo avaliacao.html.');
-    return;
-  }
-  button.disabled = true;
-  button.innerHTML = 'Enviando...';
-  const data = new URLSearchParams();
-  data.append('timestamp', new Date().toISOString());
-  new FormData(form).forEach((value, key) => data.append(key, value));
-  try {
-    await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data });
-    form.style.display = 'none';
-    const msg = document.getElementById('mensagem');
-    msg.hidden = false;
-    msg.classList.add('fade-in');
-    msg.scrollIntoView({behavior:'smooth', block:'center'});
-  } catch (err) {
-    button.disabled = false;
-    button.innerHTML = 'Enviar minha avaliação <span>→</span>';
-    alert('Não foi possível enviar agora. Tente novamente.');
-  }
-});
-</script>
-</body></html>
+<script src="avaliacao.js"></script>
+</body>
+</html>

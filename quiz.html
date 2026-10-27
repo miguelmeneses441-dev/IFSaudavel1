@@ -2,64 +2,115 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quiz | IFsaudavel</title>
-<meta name="description" content="Quiz educativo do projeto IFsaudavel sobre hábitos saudáveis.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+<meta name="description" content="Quiz educativo do IFsaudavel: 10 perguntas sobre alimentação, hidratação, sono, movimento e bem-estar.">
+<meta name="theme-color" content="#123d2a">
+<meta property="og:title" content="Quiz | IFsaudavel"><meta property="og:description" content="Quiz educativo do IFsaudavel: 10 perguntas sobre alimentação, hidratação, sono, movimento e bem-estar."><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('ifs-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)d.dataset.theme=t;var f=localStorage.getItem('ifs-fs');if(f)d.dataset.fs=f;if(localStorage.getItem('ifs-motion')==='reduce')d.dataset.motion='reduce'}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
-<style>
-.quiz-hero{padding:74px 0 40px;background:linear-gradient(135deg,#17372a 0%,#2e7d5b 100%);color:#fff;position:relative;overflow:hidden}.quiz-hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.07);right:-80px;top:-90px}.quiz-hero .section-title{margin-bottom:0;position:relative;z-index:1}.quiz-hero .tag{color:#bde8c9}.quiz-hero h1{color:#fff;font-size:clamp(2.3rem,5vw,4rem)}.quiz-hero p{color:#e2f0e6}.quiz-page{padding:35px 0 75px;background:linear-gradient(180deg,#f2f8f4 0%,#fff 55%)}.quiz-card{max-width:920px;border-radius:26px;padding:28px;box-shadow:0 18px 50px rgba(23,55,42,.12);border:1px solid #e1ebe4}.quiz-progress-wrap{display:flex;align-items:center;gap:14px;margin:0 0 24px}.quiz-progress{font-weight:800;color:var(--green);margin:0;white-space:nowrap}.quiz-progress-line{height:9px;background:#e2ebe5;border-radius:99px;overflow:hidden;flex:1}.quiz-progress-line span{display:block;width:0;height:100%;background:var(--green);border-radius:99px;transition:.3s}.quiz-question{border:1px solid #e2ebe5;border-radius:18px;padding:24px;margin:16px 0;background:#fff;box-shadow:0 5px 18px rgba(23,55,42,.04)}.quiz-question h3{margin:0 0 17px;font-size:1.08rem;color:var(--dark)}.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;margin:9px 0;border:1px solid #d8e3dc;border-radius:12px;background:#fff;cursor:pointer;font-size:1rem;color:var(--text);transition:.18s}.quiz-option:hover{border-color:var(--green);background:#f4faf6;transform:translateX(2px)}.quiz-option.correct{background:#e2f6e8;border-color:#2e9b59}.quiz-option.wrong{background:#fde8e8;border-color:#d9534f}.quiz-option:disabled{cursor:default;opacity:1}.quiz-feedback{font-size:.9rem;font-weight:700;margin-top:10px}.quiz-result{display:none;text-align:center;margin-top:26px;padding:28px;border-radius:20px;background:#edf8f0;border:1px solid #d4e9da;color:var(--dark)}.quiz-result h2{margin-top:0;font-size:2rem}.score-big{font-size:2.6rem;font-weight:900;color:var(--green);margin:6px 0}.quiz-actions{text-align:center;margin-top:26px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.quiz-tip{text-align:center;color:var(--muted);font-size:.88rem;margin-top:18px}
-</style>
+
 </head>
 <body>
-<div class="accessibility-bar" aria-label="Ferramentas de acessibilidade"><button type="button" id="fontMinus" aria-label="Diminuir tamanho da fonte">A−</button><button type="button" id="fontReset" aria-label="Restaurar tamanho da fonte">A</button><button type="button" id="fontPlus" aria-label="Aumentar tamanho da fonte">A+</button><button type="button" id="contrastToggle" aria-label="Ativar alto contraste">◐ Contraste</button><button type="button" id="themeToggle" aria-label="Alternar modo escuro">🌙</button></div>
-<header class="header"><div class="container nav">
-<a class="logo" href="index.html"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" class="ifs-logo-header"><span>🌱</span> IFsaudavel</a>
-<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<nav class="menu"><a href="index.html#inicio">Início</a><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a><a href="quiz.html" aria-current="page">Quiz</a><a href="index.html#fontes">Fontes</a><a href="avaliacao.html">Avaliação</a></nav>
-</div></header>
-<section class="quiz-hero"><div class="container"><div class="section-title reveal"><span class="tag">DESAFIO IFSAUDAVEL</span><h1>Teste seus conhecimentos 🌱</h1><p>10 perguntas rápidas sobre alimentação, hidratação, sono, movimento e bem-estar.</p></div></div></section>
-<main class="quiz-page"><div class="container"><div class="quiz-card reveal">
-<div class="quiz-progress-wrap"><div class="quiz-progress" id="progress">0 de 10 respondidas</div><div class="quiz-progress-line"><span id="progressBar"></span></div></div>
-<div id="quizArea"></div>
-<div id="quizResult"></div>
-<div class="quiz-actions"><a class="btn secondary" href="index.html">← Voltar para o site</a><button class="btn primary" type="button" id="retryTop">Refazer quiz</button></div><p class="quiz-tip">Escolha uma alternativa em cada pergunta. Você verá o resultado ao concluir as 10 questões.</p>
-</div></div></main>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html#inicio" aria-label="IFsaudavel — página inicial">
+      <img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" width="38" height="46" onerror="this.style.display='none'">
+      <span class="brand-name">🌱 IF<b>saudavel</b></span>
+    </a>
+    <nav class="menu" id="mainMenu" aria-label="Navegação principal">
+      <a href="index.html#inicio">Início</a>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="dropTemas">Temas <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="drop-menu" id="dropTemas"><a href="index.html#alimentacao">🍎 Alimentação</a><a href="index.html#hidratacao">💧 Hidratação</a><a href="index.html#sono">🌙 Sono</a><a href="index.html#movimento">🏃 Movimento</a><a href="index.html#bem-estar">🧠 Bem-estar</a></div>
+      </div>
+      <a href="index.html#checklist">Checklist</a>
+      <a href="quiz.html" aria-current="page">Quiz</a>
+      <a href="index.html#sobre">Projeto</a>
+      <a href="fontes.html">Fontes</a>
+      <a href="avaliacao.html">Avaliação</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar modo claro/escuro" title="Modo claro/escuro">🌙</button>
+      <button class="icon-btn" id="a11yBtn" type="button" aria-label="Abrir opções de acessibilidade" aria-expanded="false" aria-controls="a11yPanel" title="Acessibilidade">Aa</button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    </div>
+  </div>
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Opções de acessibilidade">
+    <h2>♿ Acessibilidade <button class="icon-btn" type="button" id="a11yClose" aria-label="Fechar" style="width:34px;height:34px">✕</button></h2>
+    <div class="a11y-row"><span>Tamanho do texto</span>
+      <div class="seg" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontMinus" aria-label="Diminuir texto">A−</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão">A</button>
+        <button type="button" id="fontPlus" aria-label="Aumentar texto">A+</button>
+      </div></div>
+    <div class="a11y-row"><span>Aparência</span>
+      <div class="seg" role="group" aria-label="Aparência">
+        <button type="button" data-theme-set="light" aria-pressed="false">☀️ Claro</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">🌙 Escuro</button>
+        <button type="button" data-theme-set="contrast" aria-pressed="false">◐ Contraste</button>
+      </div></div>
+    <div class="a11y-row"><label class="switch"><span>Reduzir animações</span><input type="checkbox" id="motionToggle"></label></div>
+    <button class="btn secondary small" type="button" id="a11yResetAll" style="width:100%">Restaurar padrões</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#inicio"><span aria-hidden="true">🏠</span> Início</a>
+    <div class="group-title">Temas</div><a href="index.html#alimentacao"><span aria-hidden="true">🍎</span> Alimentação</a><a href="index.html#hidratacao"><span aria-hidden="true">💧</span> Hidratação</a><a href="index.html#sono"><span aria-hidden="true">🌙</span> Sono</a><a href="index.html#movimento"><span aria-hidden="true">🏃</span> Movimento</a><a href="index.html#bem-estar"><span aria-hidden="true">🧠</span> Bem-estar</a>
+    <div class="group-title">Explorar</div>
+    <a href="index.html#checklist"><span aria-hidden="true">✅</span> Checklist de hábitos</a>
+    <a href="quiz.html" aria-current="page"><span aria-hidden="true">🎯</span> Quiz</a>
+    <a href="index.html#sobre"><span aria-hidden="true">👥</span> O projeto</a>
+    <a href="fontes.html"><span aria-hidden="true">📚</span> Fontes</a>
+    <a href="avaliacao.html"><span aria-hidden="true">💬</span> Avaliação</a>
+  </div>
+</header>
+<main id="conteudo">
+<section class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Início</a> › Quiz</div>
+    <span class="tag">Desafio IFsaudavel</span>
+    <h1>Teste seus conhecimentos 🌱</h1>
+    <p>10 perguntas rápidas sobre alimentação, hidratação, sono, movimento e bem-estar. Você vê uma explicação depois de cada resposta.</p>
+  </div>
+</section>
+<section class="quiz-page">
+  <div class="container">
+    <div class="quiz-card" id="quizCard">
+      <noscript><p>Ative o JavaScript para fazer o quiz.</p></noscript>
+      <div id="quizStage" aria-live="polite"></div>
+    </div>
+    <p class="quiz-side">Dica: use as teclas <b>A</b>, <b>B</b>, <b>C</b>, <b>D</b> (ou 1–4) para responder e <b>Enter</b> para avançar.</p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" onerror="this.style.display='none'"><strong>🌱 IFsaudavel</strong></div>
+        <p>Informação simples e educativa para cuidar melhor de você. Projeto escolar do IFS · Campus Lagarto.</p>
+      </div>
+      <div><h4>Navegue</h4><a href="index.html#inicio">Início</a><a href="index.html#checklist">Checklist</a><a href="quiz.html">Quiz</a><a href="avaliacao.html">Avaliação</a></div>
+      <div><h4>Temas</h4><a href="index.html#alimentacao">Alimentação</a><a href="index.html#hidratacao">Hidratação</a><a href="index.html#sono">Sono</a><a href="index.html#movimento">Movimento</a><a href="index.html#bem-estar">Bem-estar</a></div>
+      <div><h4>Projeto</h4><a href="index.html#sobre">Sobre</a><a href="fontes.html">Fontes e referências</a><a href="index.html#faq">Perguntas frequentes</a></div>
+    </div>
+    <div class="copyright"><span>Projeto escolar · IFS Campus Lagarto · 2026</span><span>Conteúdo educativo — não substitui orientação profissional.</span></div>
+  </div>
+</footer>
+<nav class="mobile-quick-nav" aria-label="Atalhos rápidos">
+  <a href="index.html#inicio"><span style="font-size:1.1rem" aria-hidden="true">🏠</span><span>Início</span></a>
+  <a href="index.html#conteudos"><span style="font-size:1.1rem" aria-hidden="true">🌿</span><span>Temas</span></a>
+  <a href="quiz.html" aria-current="page"><span style="font-size:1.1rem" aria-hidden="true">🎯</span><span>Quiz</span></a>
+  <a href="avaliacao.html"><span style="font-size:1.1rem" aria-hidden="true">💬</span><span>Avaliar</span></a>
+</nav>
 <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" type="button">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
 <script src="script.js"></script>
-<script>
-(function(){
-'use strict';
-const questions=[
-['Qual é uma característica de uma alimentação equilibrada?',['Eliminar grupos inteiros de alimentos','Buscar variedade e equilíbrio','Pular refeições todos os dias','Seguir a mesma dieta de outra pessoa'],1],
-['Por que a hidratação é importante?',['Porque substitui todas as refeições','Porque participa de funções do organismo','Porque evita qualquer doença','Porque elimina a necessidade de dormir'],1],
-['Quantas horas de sono por noite são geralmente recomendadas para adolescentes?',['3 a 4 horas','5 a 6 horas','8 a 10 horas','12 a 14 horas'],2],
-['Qual opção representa uma forma de movimento?',['Dança','Ficar sentado o dia todo','Pular refeições','Dormir menos'],0],
-['Cuidar do bem-estar emocional pode incluir:',['Nunca conversar sobre problemas','Ter lazer e buscar apoio quando necessário','Ignorar sentimentos','Evitar todas as pessoas'],1],
-['O objetivo principal de hábitos saudáveis deve ser:',['Comparar corpos','Buscar aparência perfeita','Cuidar da saúde e qualidade de vida','Fazer dietas extremas'],2],
-['O que pode ajudar na rotina de sono?',['Horários relativamente regulares','Usar telas sem pausa até dormir','Dormir cada dia em horário totalmente diferente','Evitar qualquer momento de descanso'],0],
-['Sobre atividade física, é correto afirmar:',['Só vale se for esporte competitivo','Deve ser escolhida de forma segura e adequada','É necessário se comparar com outras pessoas','A aparência é o objetivo principal'],1],
-['Quando uma questão de saúde exige orientação individual, o ideal é:',['Copiar a rotina de alguém','Buscar um profissional de saúde','Seguir qualquer dica da internet','Ignorar o problema'],1],
-['O checklist deste site serve para:',['Dar uma nota para sua saúde','Estimular reflexão sobre a rotina','Comparar estudantes','Criar uma dieta personalizada'],1]
-];
-const area=document.getElementById('quizArea'), progress=document.getElementById('progress'), result=document.getElementById('quizResult'), progressBar=document.getElementById('progressBar');
-let score=0, answered=0;
-function render(){
- questions.forEach((item,i)=>{
-  const box=document.createElement('section'); box.className='quiz-question';
-  const h=document.createElement('h3'); h.textContent=(i+1)+'. '+item[0]; box.appendChild(h);
-  item[1].forEach((answer,j)=>{
-   const btn=document.createElement('button'); btn.type='button'; btn.className='quiz-option'; btn.textContent=String.fromCharCode(65+j)+') '+answer;
-   btn.addEventListener('click',function(){
-    if(box.dataset.answered==='true') return; box.dataset.answered='true'; answered++; progress.textContent=answered+' de 10 respondidas'; progressBar.style.width=(answered/10*100)+'%';
-    const buttons=box.querySelectorAll('.quiz-option'); buttons.forEach(b=>b.disabled=true); const feedback=document.createElement('div'); feedback.className='quiz-feedback'; feedback.textContent=j===item[2]?'✓ Resposta correta!':'Resposta incorreta. A alternativa correta está destacada.'; box.appendChild(feedback);
-    if(j===item[2]){btn.classList.add('correct');score++;}else{btn.classList.add('wrong');buttons[item[2]].classList.add('correct');}
-    if(answered===questions.length){result.style.display='block';result.classList.add('fade-in');result.innerHTML='<h2>Resultado final</h2><div class="score-big">'+score+'/10</div><p>Você acertou <strong>'+score+' de 10</strong> perguntas.</p><p>'+ (score>=8?'Excelente! Você mandou muito bem. 🌟':score>=5?'Muito bom! Continue aprendendo sobre hábitos saudáveis. 💚':'Continue explorando o IFsaudavel e aprenda mais sobre saúde e bem-estar. 🌱') +'</p><button type="button" class="btn primary" id="retry">Refazer quiz</button>';document.getElementById('retry').addEventListener('click',()=>location.reload());result.scrollIntoView({behavior:'smooth',block:'center'});}
-   }); box.appendChild(btn);
-  }); area.appendChild(box);
- });
-}
-render(); document.getElementById('retryTop').addEventListener('click',()=>location.reload());
-})();
-</script>
-</body></html>
+<script src="quiz.js"></script>
+</body>
+</html>
