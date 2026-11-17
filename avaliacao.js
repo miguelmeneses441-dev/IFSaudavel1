@@ -53,7 +53,6 @@
   }
   function nota() {
     val.textContent = range.value; emoji.textContent = faces[+range.value];
-    val.parentElement.classList.remove('pop'); void val.parentElement.offsetWidth; val.parentElement.classList.add('pop');
   }
 
   form.addEventListener('input', () => { progress(); counters(); saveDraft(); });
@@ -69,7 +68,7 @@
       missing.forEach((r) => form.querySelector('[data-req="' + r + '"]').classList.add('invalid'));
       const first = form.querySelector('[data-req="' + missing[0] + '"]');
       first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      err.textContent = 'Faltam ' + missing.length + ' pergunta' + (missing.length > 1 ? 's' : '') + ' obrigatória' + (missing.length > 1 ? 's' : '') + '. Elas estão destacadas em vermelho.';
+      err.textContent = 'Faltam ' + missing.length + ' pergunta' + (missing.length > 1 ? 's' : '') + ' obrigatória' + (missing.length > 1 ? 's' : '') + '. Marcamos elas na tela para você achar mais fácil.';
       return;
     }
     if (form.elements.website.value) return; // anti-robô: campo invisível preenchido
@@ -86,10 +85,9 @@
       const msg = document.getElementById('mensagem');
       msg.hidden = false; msg.classList.add('fade-in');
       msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      if (window.IFS) window.IFS.confetti();
     } catch (er) {
-      btn.disabled = false; btn.textContent = 'Enviar minha avaliação →';
-      err.textContent = 'Não foi possível enviar agora. Verifique sua conexão e tente novamente — suas respostas continuam salvas.';
+      btn.disabled = false; btn.textContent = 'Enviar avaliação';
+      err.textContent = 'Não conseguimos enviar agora. Confira sua conexão e tente de novo; suas respostas continuam aqui.';
     }
   });
 })();

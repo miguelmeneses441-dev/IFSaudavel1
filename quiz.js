@@ -3,7 +3,7 @@
   'use strict';
   const stage = document.getElementById('quizStage');
   if (!stage) return;
-  const { toast, confetti, store } = window.IFS || { toast() {}, confetti() {}, store: { get: (k, d) => d, set() {} } };
+  const { toast, store } = window.IFS || { toast() {}, store: { get: (k, d) => d, set() {} } };
 
   // c = índice da alternativa correta; e = explicação
   const QUESTIONS = [
@@ -39,7 +39,7 @@
   function top() {
     return '<div class="quiz-top"><span class="count">Pergunta ' + (idx + 1) + ' de ' + TOTAL + '</span>' +
       '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + TOTAL + '" aria-valuenow="' + idx + '"><span style="width:' + (idx / TOTAL) * 100 + '%"></span></div>' +
-      '<span class="score-pill">⭐ ' + score + ' acerto' + (score === 1 ? '' : 's') + '</span></div>';
+      '<span class="score-pill">' + score + ' acerto' + (score === 1 ? '' : 's') + '</span></div>';
   }
 
   function renderQuestion() {
@@ -68,10 +68,10 @@
     btns.forEach((b, j) => { b.disabled = true; if (item.opts[j].ok) b.classList.add('correct'); });
     if (ok) { score++; } else { btns[i].classList.add('wrong'); wrongs.push({ q: item.q, a: item.opts.find((o) => o.ok).t, e: item.e }); }
     stage.querySelector('#feedback').innerHTML =
-      '<div class="quiz-explain' + (ok ? '' : ' bad') + '" role="status"><strong>' + (ok ? '✓ Resposta correta!' : '✗ Não foi dessa vez.') + '</strong>' + esc(item.e) + '</div>';
-    stage.querySelector('.score-pill').textContent = '⭐ ' + score + ' acerto' + (score === 1 ? '' : 's');
+      '<div class="quiz-explain' + (ok ? '' : ' bad') + '" role="status"><strong>' + (ok ? 'Isso mesmo.' : 'Quase! A resposta certa está destacada.') + '</strong>' + esc(item.e) + '</div>';
+    stage.querySelector('.score-pill').textContent = score + ' acerto' + (score === 1 ? '' : 's');
     const nb = stage.querySelector('#nextBtn');
-    nb.textContent = idx === TOTAL - 1 ? 'Ver resultado 🏁' : 'Próxima →';
+    nb.textContent = idx === TOTAL - 1 ? 'Ver resultado' : 'Próxima →';
     nb.hidden = false; nb.focus({ preventScroll: true });
     stage.querySelector('.kbd-hint').textContent = 'Pressione Enter para continuar';
   }
@@ -89,29 +89,28 @@
     const isBest = score > prevBest;
     if (isBest) store.set(BEST_KEY, String(score));
     const best = Math.max(score, prevBest);
-    const msg = score === TOTAL ? 'Perfeito! Você acertou tudo! 🏆' : score >= 8 ? 'Excelente! Você mandou muito bem. 🌟' : score >= 5 ? 'Muito bom! Continue aprendendo sobre hábitos saudáveis. 💚' : 'Bom começo! Explore o IFsaudavel e tente de novo. 🌱';
+    const msg = score === TOTAL ? 'Você acertou todas. Parabéns!' : score >= 8 ? 'Mandou muito bem!' : score >= 5 ? 'Bom resultado. Dá para aprender ainda mais com as explicações abaixo.' : 'Sem problema: o quiz é para aprender. Dê uma olhada nas explicações abaixo e, se quiser, tente de novo.';
     stage.innerHTML =
       '<div class="result"><div class="result-ring"><svg viewBox="0 0 160 160" aria-hidden="true"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" id="resFg" cx="80" cy="80" r="70"/></svg>' +
       '<div class="num"><span>' + score + '<small>/' + TOTAL + '</small></span></div></div>' +
-      '<h2>Resultado final</h2><p>Você acertou <strong>' + score + ' de ' + TOTAL + '</strong> perguntas.<br>' + msg + '</p>' +
-      '<p class="best">' + (isBest && prevBest >= 0 ? '🎉 Novo recorde pessoal!' : 'Seu melhor resultado neste aparelho: ' + best + '/' + TOTAL) + '</p>' +
-      '<div class="result-actions"><button class="btn primary" type="button" id="retry">↻ Refazer quiz</button>' +
-      '<button class="btn secondary" type="button" id="share">📤 Compartilhar</button>' +
-      '<a class="btn secondary" href="avaliacao.html">💬 Avaliar o site</a></div>' +
-      (wrongs.length ? '<div class="review"><h3>Para revisar (' + wrongs.length + ')</h3>' + wrongs.map((w) => '<div class="review-item"><b>' + esc(w.q) + '</b><span class="ans">✓ ' + esc(w.a) + '</span><br>' + esc(w.e) + '</div>').join('') + '</div>' : '<p>Nada para revisar — você acertou todas! 🎯</p>') +
+      '<h2>Seu resultado</h2><p>Você acertou <strong>' + score + ' de ' + TOTAL + '</strong> perguntas.<br>' + msg + '</p>' +
+      '<p class="best">' + (isBest && prevBest >= 0 ? 'Seu melhor resultado até agora!' : 'Seu melhor resultado neste aparelho: ' + best + '/' + TOTAL) + '</p>' +
+      '<div class="result-actions"><button class="btn primary" type="button" id="retry">Fazer de novo</button>' +
+      '<button class="btn secondary" type="button" id="share">Compartilhar</button>' +
+      '<a class="btn secondary" href="avaliacao.html">Avaliar o site</a></div>' +
+      (wrongs.length ? '<div class="review"><h3>Para revisar (' + wrongs.length + ')</h3>' + wrongs.map((w) => '<div class="review-item"><b>' + esc(w.q) + '</b><span class="ans">Resposta certa: ' + esc(w.a) + '</span><br>' + esc(w.e) + '</div>').join('') + '</div>' : '<p>Nada para revisar: você acertou todas.</p>') +
       '<p style="margin-top:1.2rem"><a href="index.html">← Voltar para o site</a></p></div>';
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const fg = document.getElementById('resFg');
       if (fg) fg.style.strokeDashoffset = 439.8 * (1 - score / TOTAL);
     }));
-    if (score >= 8) confetti();
     document.getElementById('retry').addEventListener('click', () => { start(); stage.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     document.getElementById('share').addEventListener('click', async () => {
       const text = 'Acertei ' + score + ' de ' + TOTAL + ' no quiz do IFsaudavel! Tente você também:';
       const url = location.href.split('#')[0];
       try {
         if (navigator.share) await navigator.share({ title: 'IFsaudavel — Quiz', text, url });
-        else { await navigator.clipboard.writeText(text + ' ' + url); toast('🔗 Texto copiado!'); }
+        else { await navigator.clipboard.writeText(text + ' ' + url); toast('Texto copiado'); }
       } catch (e) { /* cancelado */ }
     });
     stage.scrollIntoView({ behavior: 'smooth', block: 'start' });

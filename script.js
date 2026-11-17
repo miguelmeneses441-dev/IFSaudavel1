@@ -28,35 +28,7 @@
     toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  /* confete */
-  function confetti() {
-    const c = $('#confetti');
-    if (!c || reduceMotion()) return;
-    const ctx = c.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
-    c.width = innerWidth * dpr; c.height = innerHeight * dpr;
-    ctx.scale(dpr, dpr);
-    const colors = ['#77d89a', '#1f7a4d', '#f2c66d', '#4aa3df', '#e5736a', '#ffffff'];
-    const parts = Array.from({ length: 110 }, () => ({
-      x: innerWidth / 2 + (Math.random() - .5) * 160, y: innerHeight * .55,
-      vx: (Math.random() - .5) * 14, vy: -Math.random() * 15 - 5,
-      s: Math.random() * 7 + 4, r: Math.random() * 6, vr: (Math.random() - .5) * .4,
-      c: colors[(Math.random() * colors.length) | 0]
-    }));
-    const start = performance.now();
-    (function frame(now) {
-      const t = now - start;
-      ctx.clearRect(0, 0, innerWidth, innerHeight);
-      parts.forEach((p) => {
-        p.vy += .42; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.vx *= .99;
-        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
-        ctx.globalAlpha = Math.max(0, 1 - t / 2600);
-        ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 3, p.s, p.s * .6); ctx.restore();
-      });
-      if (t < 2600) requestAnimationFrame(frame); else ctx.clearRect(0, 0, innerWidth, innerHeight);
-    })(start);
-  }
-  window.IFS = { toast, confetti, store };
+  window.IFS = { toast, store };
 
   /* ---------- acessibilidade e tema ---------- */
   (function a11y() {
@@ -190,33 +162,6 @@
     secs.forEach((s) => io.observe(s));
   })();
 
-  /* ---------- revelar ao rolar + contadores ---------- */
-  (function reveal() {
-    const items = $$('.reveal, .reveal-scale, .stagger');
-    const show = (el) => el.classList.add('visible');
-    if (!('IntersectionObserver' in window)) { items.forEach(show); }
-    else {
-      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
-      items.forEach((el) => io.observe(el));
-      // segurança: nada fica invisível se o observer falhar
-      setTimeout(() => items.forEach(show), 4000);
-    }
-    const nums = $$('[data-count]');
-    const run = (el) => {
-      const target = parseInt(el.dataset.count, 10) || 0, dur = 900, t0 = performance.now();
-      (function step(now) {
-        const p = Math.min((now - t0) / dur, 1);
-        el.textContent = Math.round(p * target);
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
-    };
-    if (!('IntersectionObserver' in window)) nums.forEach((n) => { n.textContent = n.dataset.count; });
-    else {
-      const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { run(e.target); io2.unobserve(e.target); } }), { threshold: .5 });
-      nums.forEach((n) => io2.observe(n));
-    }
-  })();
-
   /* ---------- estado do dia (salvo só no navegador) ---------- */
   const todayKey = () => { const d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); };
   const DAY_KEY = 'ifs-day';
@@ -314,15 +259,15 @@
       text.textContent = day.water + ' de ' + day.goal + ' copos (' + (day.water * 0.2).toFixed(1).replace('.', ',') + ' L)';
       goalText.textContent = 'Meta: ' + day.goal;
       if (announce !== false) {
-        msg.textContent = day.water === 0 ? '' : day.water >= day.goal ? 'Meta do dia alcançada! 💧🎉 Continue cuidando da hidratação.' :
-          day.water >= day.goal / 2 ? 'Já passou da metade. Continue assim!' : 'Bom começo! Lembre-se de beber ao longo do dia.';
+        msg.textContent = day.water === 0 ? '' : day.water >= day.goal ? 'Meta de hoje cumprida. Bom trabalho!' :
+          day.water >= day.goal / 2 ? 'Já passou da metade, está indo bem.' : 'Um bom começo. Vá bebendo aos poucos ao longo do dia.';
       }
     }
     function set(n) {
       const before = day.water;
       day.water = Math.max(0, Math.min(day.goal, n));
       saveDay(); render();
-      if (before < day.goal && day.water === day.goal) { toast('💧 Meta de água do dia alcançada!'); confetti(); }
+      if (before < day.goal && day.water === day.goal) toast('Meta de água de hoje cumprida');
     }
     $('#waterAdd').addEventListener('click', () => set(day.water + 1));
     $('#waterUndo').addEventListener('click', () => set(day.water - 1));
@@ -363,8 +308,8 @@
       const before = day.minutes;
       day.minutes = Math.max(0, day.minutes + n);
       saveDay(); render();
-      if (n > 0 && label) msg.textContent = label + ' registrado(a)! +' + n + ' min 👏';
-      if (before < 60 && day.minutes >= 60) { msg.textContent = 'Referência de 60 minutos alcançada hoje! 🎉'; toast('🏃 60 minutos de movimento!'); confetti(); }
+      if (n > 0 && label) msg.textContent = label + ': +' + n + ' min anotados.';
+      if (before < 60 && day.minutes >= 60) { msg.textContent = 'Você chegou aos 60 minutos de hoje. Que bom!'; toast('60 minutos de movimento hoje'); }
     }
     $$('[data-act]').forEach((b) => b.addEventListener('click', () => add(10, b.dataset.act)));
     $('#moveUndo').addEventListener('click', () => { add(-10); msg.textContent = ''; });
@@ -412,11 +357,11 @@
     const btns = $$('.mood');
     if (!btns.length) return;
     const msgs = [
-      'Que bom! Aproveite esse momento e, se puder, compartilhe esse ânimo com alguém. 😄',
-      'Ótimo! Pequenas rotinas de cuidado ajudam a manter esse bem-estar. 🙂',
-      'Dias assim acontecem. Uma pausa, água, um lanche ou uma conversa podem ajudar. 😐',
-      'Obrigado por perceber isso. Que tal respirar fundo e falar com alguém de confiança sobre como se sente? 💬',
-      'Sentimos muito que esteja difícil. Você não precisa lidar com tudo sozinho: converse com um adulto de confiança ou com um profissional. O CVV atende pelo 188, gratuitamente, 24 horas. 💚'
+      'Que bom saber! Se der, divida esse ânimo com alguém hoje.',
+      'Legal! Pequenos cuidados na rotina ajudam a manter esse bem-estar.',
+      'Tem dias assim, e tudo bem. Uma pausa, água, um lanche ou uma boa conversa podem ajudar.',
+      'Obrigado por parar para perceber isso. Que tal respirar fundo e contar para alguém de confiança como você está?',
+      'Sentimos muito que esteja difícil. Você não precisa passar por isso sozinho: fale com um adulto de confiança ou com um profissional. O CVV atende gratuitamente, 24 horas, pelo 188.'
     ];
     const out = $('#moodMsg');
     btns.forEach((b) => b.addEventListener('click', () => {
@@ -435,8 +380,8 @@
       const on = c.classList.toggle('is-flipped');
       c.setAttribute('aria-pressed', String(on));
       if (on) seen.add(i);
-      count.textContent = seen.size + ' de ' + cards.length + ' cartões virados';
-      if (seen.size === cards.length && on) { toast('🎉 Você virou todos os cartões!'); confetti(); }
+      count.textContent = seen.size + ' de ' + cards.length + ' respostas vistas';
+      if (seen.size === cards.length && on) toast('Você viu todas as respostas');
     }));
   })();
 
@@ -450,8 +395,8 @@
       const n = checks.filter((c) => c.checked).length;
       bar.style.width = (n / checks.length) * 100 + '%';
       text.textContent = n + '/' + checks.length + ' concluídos';
-      msg.textContent = n === 0 ? '' : n === checks.length ? 'Dia completo! 🎉' : n >= 3 ? 'Muito bem, falta pouco!' : 'Bom começo! 🌱';
-      if (celebrate && n === checks.length) { toast('🎉 Você completou todos os hábitos de hoje!'); confetti(); }
+      msg.textContent = n === 0 ? '' : n === checks.length ? 'Dia completo. Parabéns!' : n >= 3 ? 'Muito bem, falta pouco.' : 'Um bom começo.';
+      if (celebrate && n === checks.length) toast('Você marcou todos os hábitos de hoje');
     }
     checks.forEach((c, i) => c.addEventListener('change', () => {
       day.checks[i] = c.checked; saveDay(); render(c.checked);
@@ -482,7 +427,7 @@
         const ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
         document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (er) { /* ignore */ } ta.remove();
       }
-      toast('🔗 Link copiado!');
+      toast('Link copiado');
     }));
   })();
 })();

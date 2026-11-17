@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IFsaudavel | IFS Campus Lagarto</title>
-<meta name="description" content="Projeto escolar IFsaudavel do IFS Campus Lagarto: alimentação, hidratação, sono, movimento e bem-estar, com ferramentas interativas e quiz.">
+<meta name="description" content="Projeto escolar do IFS Campus Lagarto sobre alimentação, água, sono, movimento e bem-estar, com algumas ferramentas para você testar no dia a dia.">
 <meta name="theme-color" content="#123d2a">
-<meta property="og:title" content="IFsaudavel | IFS Campus Lagarto"><meta property="og:description" content="Projeto escolar IFsaudavel do IFS Campus Lagarto: alimentação, hidratação, sono, movimento e bem-estar, com ferramentas interativas e quiz."><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="IFsaudavel | IFS Campus Lagarto"><meta property="og:description" content="Projeto escolar do IFS Campus Lagarto sobre alimentação, água, sono, movimento e bem-estar, com algumas ferramentas para você testar no dia a dia."><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
 <script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('ifs-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t)d.dataset.theme=t;var f=localStorage.getItem('ifs-fs');if(f)d.dataset.fs=f;if(localStorage.getItem('ifs-motion')==='reduce')d.dataset.motion='reduce'}catch(e){}})();</script>
 <link rel="stylesheet" href="style.css">
 
@@ -72,23 +72,20 @@
 
 <!-- ============ HERO ============ -->
 <section id="inicio" class="hero">
-  <div class="hero-blob b1" aria-hidden="true"></div><div class="hero-blob b2" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div>
-      <div class="hero-top"><div class="ifs-badge"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="Instituto Federal de Sergipe — Campus Lagarto" onerror="this.style.display='none'"><span>Projeto desenvolvido no IFS · Campus Lagarto</span></div>
-      <span class="tag">Projeto escolar</span></div>
-      <h1>Pequenas atitudes podem transformar sua <span>qualidade de vida.</span></h1>
-      <p class="hero-lead">Um espaço educativo para conhecer hábitos de alimentação, hidratação, sono, movimento e bem-estar — e colocar tudo em prática com ferramentas interativas.</p>
+      <div class="hero-top"><div class="ifs-badge"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="Instituto Federal de Sergipe — Campus Lagarto" onerror="this.style.display='none'"><span>Projeto desenvolvido no IFS · Campus Lagarto</span></div></div>
+      <h1>Cuidar de você começa com <span>coisas pequenas.</span></h1>
+      <p class="hero-lead">Somos estudantes do IFS Campus Lagarto e montamos este site para conversar sobre comida, água, sono, movimento e bem-estar. Sem sermão e sem fórmula mágica: é só um espaço para ler com calma e testar no seu ritmo.</p>
       <div class="buttons">
-        <a class="btn light" href="#conteudos">Explorar conteúdos ↓</a>
-        <a class="btn ghost" href="quiz.html">🎯 Fazer o quiz</a>
+        <a class="btn primary" href="#conteudos">Começar pelos temas</a>
+        <a class="btn secondary" href="quiz.html">Fazer o quiz</a>
       </div>
-      <div class="hero-points" aria-label="Destaques"><span>✅ Checklist diário</span><span>💧 Contador de água</span><span>😴 Calculadora de sono</span><span>🌬️ Respiração guiada</span></div>
     </div>
 
-    <aside class="day-card reveal-scale" aria-label="Resumo do seu dia">
+    <aside class="day-card" aria-label="Resumo do seu dia">
       <h2>Meu dia hoje</h2>
-      <p>Seu progresso fica salvo só neste aparelho.</p>
+      <p>Um cantinho só seu. O que você marcar fica salvo apenas neste aparelho.</p>
       <div class="ring-wrap">
         <div class="ring" role="img" aria-label="Progresso geral do dia" id="dayRing">
           <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="dayRingFg" cx="60" cy="60" r="52"/></svg>
@@ -100,12 +97,7 @@
           <div class="metric"><span>🏃 Movimento</span><b id="mMove">0/60 min</b></div>
         </div>
       </div>
-      <a class="btn primary" href="#checklist">Registrar meu dia</a>
-      <div class="mini-stats">
-        <div><strong data-count="5">0</strong><small>temas</small></div>
-        <div><strong data-count="10">0</strong><small>perguntas</small></div>
-        <div><strong data-count="5">0</strong><small>fontes oficiais</small></div>
-      </div>
+      <a class="btn primary" href="#checklist">Marcar meu dia</a>
     </aside>
   </div>
 </section>
@@ -113,18 +105,18 @@
 <!-- ============ PILARES ============ -->
 <section id="conteudos" class="section">
   <div class="container">
-    <div class="section-title reveal"><span class="tag">Conheça</span><h2>Os pilares de uma rotina saudável</h2><p>Informação simples para ajudar você a refletir sobre seus hábitos. Escolha um tema para começar.</p></div>
-    <div class="cards stagger">
-      <a class="card" href="#alimentacao"><div class="icon">🍎</div><h3>Alimentação</h3><p>Variedade, equilíbrio e uma relação tranquila com a comida.</p><span class="more">Saiba mais →</span></a>
-      <a class="card" href="#hidratacao"><div class="icon">💧</div><h3>Hidratação</h3><p>Entenda por que os líquidos são importantes para o organismo.</p><span class="more">Saiba mais →</span></a>
-      <a class="card" href="#sono"><div class="icon">🌙</div><h3>Sono</h3><p>Descubra como o descanso ajuda na concentração e na disposição.</p><span class="more">Saiba mais →</span></a>
-      <a class="card" href="#movimento"><div class="icon">🏃</div><h3>Movimento</h3><p>Atividade física de forma segura, prazerosa e adequada.</p><span class="more">Saiba mais →</span></a>
-      <a class="card" href="#bem-estar"><div class="icon">🧠</div><h3>Bem-estar</h3><p>Cuidados com emoções, lazer, relações e organização da rotina.</p><span class="more">Saiba mais →</span></a>
+    <div class="section-title"><span class="tag">Por onde começar</span><h2>Cinco assuntos do dia a dia</h2><p>Sem pressa: escolha o que mais chamou a sua atenção e comece por aí.</p></div>
+    <div class="cards">
+      <a class="card" href="#alimentacao"><div class="icon">🍎</div><h3>Alimentação</h3><p>Variedade, equilíbrio e uma relação tranquila com a comida.</p><span class="more">Ler mais →</span></a>
+      <a class="card" href="#hidratacao"><div class="icon">💧</div><h3>Hidratação</h3><p>Entenda por que os líquidos são importantes para o organismo.</p><span class="more">Ler mais →</span></a>
+      <a class="card" href="#sono"><div class="icon">🌙</div><h3>Sono</h3><p>Descubra como o descanso ajuda na concentração e na disposição.</p><span class="more">Ler mais →</span></a>
+      <a class="card" href="#movimento"><div class="icon">🏃</div><h3>Movimento</h3><p>Atividade física de forma segura, prazerosa e adequada.</p><span class="more">Ler mais →</span></a>
+      <a class="card" href="#bem-estar"><div class="icon">🧠</div><h3>Bem-estar</h3><p>Cuidados com emoções, lazer, relações e organização da rotina.</p><span class="more">Ler mais →</span></a>
     </div>
-    <div class="tip-banner reveal" style="margin-top:2.2rem">
+    <div class="tip-banner" style="margin-top:2.2rem">
       <div class="ico" aria-hidden="true">💡</div>
       <div class="txt"><small>Dica do dia</small><p id="tipText">Carregando dica…</p></div>
-      <button class="btn secondary small" type="button" id="tipBtn">Outra dica ↻</button>
+      <button class="btn secondary small" type="button" id="tipBtn">Outra dica</button>
     </div>
   </div>
 </section>
@@ -132,15 +124,15 @@
 <!-- ============ ALIMENTAÇÃO ============ -->
 <section id="alimentacao" class="topic">
   <div class="container topic-grid">
-    <div class="topic-visual reveal-scale">
+    <div class="topic-visual">
       <div class="topic-emoji" aria-hidden="true">🍎</div>
       <div class="fact"><strong>Você sabia?</strong>O Guia Alimentar brasileiro recomenda que alimentos in natura ou minimamente processados sejam a base da alimentação.</div>
     </div>
-    <div class="topic-body reveal">
+    <div class="topic-body">
       <span class="tag">01 · Alimentação</span>
       <h2>Equilíbrio é mais importante que perfeição.</h2>
       <p>Uma alimentação equilibrada envolve variedade e diferentes grupos de alimentos. Não existe necessidade de buscar dietas extremas ou eliminar alimentos sem orientação profissional.</p>
-      <div class="tips stagger">
+      <div class="tips">
         <div>🥗 <strong>Varie</strong><span>Inclua diferentes tipos de alimentos.</span></div>
         <div>🍽️ <strong>Equilibre</strong><span>Procure uma rotina de refeições adequada para você.</span></div>
         <div>👨‍⚕️ <strong>Informe-se</strong><span>Para orientações individuais, procure um profissional de saúde.</span></div>
@@ -187,15 +179,15 @@
 <!-- ============ HIDRATAÇÃO ============ -->
 <section id="hidratacao" class="topic alt">
   <div class="container topic-grid reverse">
-    <div class="topic-visual reveal-scale">
+    <div class="topic-visual">
       <div class="topic-emoji" aria-hidden="true">💧</div>
       <div class="fact"><strong>Você sabia?</strong>Água pura é uma ótima escolha para matar a sede no dia a dia.</div>
     </div>
-    <div class="topic-body reveal">
+    <div class="topic-body">
       <span class="tag">02 · Hidratação</span>
       <h2>Água faz parte do cuidado diário.</h2>
       <p>A hidratação participa de diversas funções do organismo. As necessidades variam de pessoa para pessoa e também conforme clima e atividade.</p>
-      <div class="tips stagger">
+      <div class="tips">
         <div>🧴 <strong>Leve sua garrafa</strong><span>Ter água por perto facilita lembrar de beber.</span></div>
         <div>☀️ <strong>Atenção ao calor</strong><span>Em dias quentes ou depois de se exercitar, vale reforçar os líquidos.</span></div>
         <div>👀 <strong>Escute o corpo</strong><span>Sede é um sinal; o hábito ao longo do dia também conta.</span></div>
@@ -220,15 +212,15 @@
 <!-- ============ SONO ============ -->
 <section id="sono" class="topic">
   <div class="container topic-grid">
-    <div class="topic-visual reveal-scale">
+    <div class="topic-visual">
       <div class="topic-emoji" aria-hidden="true">🌙</div>
       <div class="fact"><strong>Você sabia?</strong>O sono participa da atenção, da memória e da aprendizagem.</div>
     </div>
-    <div class="topic-body reveal">
+    <div class="topic-body">
       <span class="tag">03 · Sono</span>
       <h2>Descansar também faz parte da rotina.</h2>
       <p>O sono adequado contribui para processos importantes como atenção, memória, aprendizagem e disposição. Adolescentes geralmente precisam de cerca de 8 a 10 horas de sono por noite.</p>
-      <div class="tips stagger">
+      <div class="tips">
         <div>📱 <strong>Desacelere</strong><span>Evite atividades muito estimulantes perto de dormir.</span></div>
         <div>⏰ <strong>Tenha rotina</strong><span>Horários relativamente regulares podem ajudar.</span></div>
         <div>🛏️ <strong>Prepare o ambiente</strong><span>Um ambiente confortável e tranquilo favorece o descanso.</span></div>
@@ -250,15 +242,15 @@
 <!-- ============ MOVIMENTO ============ -->
 <section id="movimento" class="topic alt">
   <div class="container topic-grid reverse">
-    <div class="topic-visual reveal-scale">
+    <div class="topic-visual">
       <div class="topic-emoji" aria-hidden="true">🏃</div>
       <div class="fact"><strong>Você sabia?</strong>Para adolescentes, a OMS recomenda uma média de 60 minutos por dia de atividade moderada a vigorosa.</div>
     </div>
-    <div class="topic-body reveal">
+    <div class="topic-body">
       <span class="tag">04 · Movimento</span>
       <h2>Encontre formas de se movimentar que você goste.</h2>
       <p>Atividade física pode incluir esportes, caminhada, dança, brincadeiras e outras formas de movimento. Para adolescentes, recomenda-se uma média de 60 minutos por dia de atividade física moderada a vigorosa, distribuída ao longo da semana, conforme orientações de saúde.</p>
-      <div class="tips stagger">
+      <div class="tips">
         <div>🎶 <strong>Escolha o que gosta</strong><span>Dança, bola, bicicleta, caminhada: tudo conta.</span></div>
         <div>🧩 <strong>Divida o tempo</strong><span>Blocos curtos ao longo do dia também somam.</span></div>
         <div>🛡️ <strong>Vá com segurança</strong><span>Aqueça, hidrate-se e respeite seus limites.</span></div>
@@ -286,15 +278,15 @@
 <!-- ============ BEM-ESTAR ============ -->
 <section id="bem-estar" class="topic">
   <div class="container topic-grid">
-    <div class="topic-visual reveal-scale">
+    <div class="topic-visual">
       <div class="topic-emoji" aria-hidden="true">🧠</div>
       <div class="fact"><strong>Você sabia?</strong>Conversar com alguém de confiança já é um ótimo primeiro passo.</div>
     </div>
-    <div class="topic-body reveal">
+    <div class="topic-body">
       <span class="tag">05 · Bem-estar</span>
       <h2>Cuidar da mente também é cuidar da saúde.</h2>
       <p>Momentos de lazer, descanso, convivência e organização podem contribuir para o bem-estar. Quando algo estiver difícil, conversar com um adulto de confiança ou buscar ajuda profissional pode ser importante.</p>
-      <div class="tips stagger">
+      <div class="tips">
         <div>🎵 <strong>Tenha momentos de lazer</strong><span>Reserve tempo para atividades que fazem sentido para você.</span></div>
         <div>🤝 <strong>Conecte-se</strong><span>Valorize pessoas com quem você se sente bem.</span></div>
         <div>💬 <strong>Peça ajuda</strong><span>Você não precisa resolver tudo sozinho.</span></div>
@@ -332,24 +324,24 @@
 <!-- ============ MITO OU VERDADE ============ -->
 <section id="mitos" class="section soft">
   <div class="container">
-    <div class="section-title reveal"><span class="tag">Mito ou verdade?</span><h2>Será que você sabe?</h2><p>Toque em um cartão para virar e descobrir a resposta.</p></div>
-    <div class="flip-grid stagger" id="flipGrid">
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dietas radicais são a melhor forma de cuidar da alimentação.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back myth"><strong>❌ Mito</strong><span class="ans">Variedade e equilíbrio são mais importantes. Dietas extremas, sem orientação profissional, podem trazer riscos.</span></span></span></button>
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Só preciso pensar em beber água quando sinto sede.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back myth"><strong>❌ Mito</strong><span class="ans">A sede é um sinal importante, mas vale lembrar de beber líquidos ao longo do dia, principalmente no calor ou após se exercitar.</span></span></span></button>
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dormir pouco na semana e compensar no fim de semana resolve tudo.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back myth"><strong>❌ Mito</strong><span class="ans">Horários relativamente regulares costumam ajudar mais. Tentar recuperar tudo no fim de semana nem sempre funciona.</span></span></span></button>
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dançar, brincar e caminhar contam como atividade física.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back true"><strong>✅ Verdade</strong><span class="ans">Atividade física não é só esporte competitivo. Qualquer forma de movimento segura e prazerosa conta.</span></span></span></button>
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Pedir ajuda quando algo está difícil é sinal de fraqueza.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back myth"><strong>❌ Mito</strong><span class="ans">Pedir ajuda é um ato de cuidado. Conversar com um adulto de confiança ou um profissional pode fazer muita diferença.</span></span></span></button>
-      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Cada pessoa tem necessidades diferentes de alimentação, água e sono.”</span><span class="hint">Toque para virar ↻</span></span><span class="flip-face flip-back true"><strong>✅ Verdade</strong><span class="ans">Idade, clima, rotina e saúde fazem diferença. Para orientações individuais, procure um profissional de saúde.</span></span></span></button>
+    <div class="section-title"><span class="tag">Mito ou verdade?</span><h2>Você já ouviu isso por aí?</h2><p>Toque em uma frase para ver o que as fontes dizem.</p></div>
+    <div class="flip-grid" id="flipGrid">
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dietas radicais são a melhor forma de cuidar da alimentação.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back myth"><strong>Mito</strong><span class="ans">Variedade e equilíbrio são mais importantes. Dietas extremas, sem orientação profissional, podem trazer riscos.</span></span></span></button>
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Só preciso pensar em beber água quando sinto sede.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back myth"><strong>Mito</strong><span class="ans">A sede é um sinal importante, mas vale lembrar de beber líquidos ao longo do dia, principalmente no calor ou após se exercitar.</span></span></span></button>
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dormir pouco na semana e compensar no fim de semana resolve tudo.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back myth"><strong>Mito</strong><span class="ans">Horários relativamente regulares costumam ajudar mais. Tentar recuperar tudo no fim de semana nem sempre funciona.</span></span></span></button>
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Dançar, brincar e caminhar contam como atividade física.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back true"><strong>Verdade</strong><span class="ans">Atividade física não é só esporte competitivo. Qualquer forma de movimento segura e prazerosa conta.</span></span></span></button>
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Pedir ajuda quando algo está difícil é sinal de fraqueza.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back myth"><strong>Mito</strong><span class="ans">Pedir ajuda é um ato de cuidado. Conversar com um adulto de confiança ou um profissional pode fazer muita diferença.</span></span></span></button>
+      <button class="flip" type="button" aria-pressed="false"><span class="flip-inner"><span class="flip-face flip-front"><span class="q">“Cada pessoa tem necessidades diferentes de alimentação, água e sono.”</span><span class="hint">Toque para ver a resposta</span></span><span class="flip-face flip-back true"><strong>Verdade</strong><span class="ans">Idade, clima, rotina e saúde fazem diferença. Para orientações individuais, procure um profissional de saúde.</span></span></span></button>
     </div>
-    <p class="flip-count" id="flipCount">0 de 6 cartões virados</p>
+    <p class="flip-count" id="flipCount">0 de 6 respostas vistas</p>
   </div>
 </section>
 
 <!-- ============ CHECKLIST ============ -->
 <section id="checklist" class="section">
   <div class="container">
-    <div class="section-title reveal"><span class="tag">Minha rotina</span><h2>Checklist de hábitos</h2><p>Marque os itens que fizeram parte do seu dia. Não é uma avaliação de saúde — é um convite à reflexão.</p></div>
-    <div class="checklist stagger" id="checklist-items">
+    <div class="section-title"><span class="tag">Minha rotina</span><h2>Como foi o seu dia?</h2><p>Marque o que fez parte da sua rotina de hoje. Não vale nota nem diagnóstico: é só um jeito de olhar para o próprio dia.</p></div>
+    <div class="checklist" id="checklist-items">
       <label class="check"><input type="checkbox"><span class="emo" aria-hidden="true">😴</span><span class="t">Dormi e descansei adequadamente</span></label>
       <label class="check"><input type="checkbox"><span class="emo" aria-hidden="true">💧</span><span class="t">Bebi líquidos ao longo do dia</span></label>
       <label class="check"><input type="checkbox"><span class="emo" aria-hidden="true">🏃</span><span class="t">Fiz algum movimento ou atividade física</span></label>
@@ -367,14 +359,13 @@
 <!-- ============ IMPACTO ============ -->
 <section class="impact-section">
   <div class="container impact-grid">
-    <div class="impact-copy reveal">
-      <span class="tag">IFsaudavel em 30 segundos</span>
-      <h2>Informação simples. Escolhas possíveis. Uma rotina mais consciente.</h2>
-      <p>O objetivo do projeto é tornar conteúdos sobre saúde mais fáceis de entender e transformar informação em pequenas atitudes do dia a dia.</p>
-      <div class="impact-actions"><a class="btn light" href="quiz.html">🎯 Testar meus conhecimentos</a><a class="text-link" href="#sobre">Conhecer o projeto →</a></div>
+    <div class="impact-copy">
+      <span class="tag">Resumindo</span>
+      <h2>Não existe rotina perfeita. Existe a que cabe no seu dia.</h2>
+      <p>A ideia do projeto é tornar a informação sobre saúde mais fácil de entender e ajudar você a perceber que pequenas escolhas, repetidas com calma, já fazem diferença.</p>
+      <div class="impact-actions"><a class="btn light" href="quiz.html">Testar o que aprendi</a><a class="text-link" href="#sobre">Conhecer o projeto →</a></div>
     </div>
-    <div class="impact-panel reveal-scale">
-      <div class="impact-ring"><span>5</span><small>pilares</small></div>
+    <div class="impact-panel">
       <div class="impact-list">
         <a href="#alimentacao"><b>01</b><span>Alimentação</span></a>
         <a href="#hidratacao"><b>02</b><span>Hidratação</span></a>
@@ -389,11 +380,11 @@
 <!-- ============ FAQ ============ -->
 <section id="faq" class="section soft">
   <div class="container">
-    <div class="section-title reveal"><span class="tag">Dúvidas</span><h2>Perguntas frequentes</h2></div>
-    <div class="faq reveal">
-      <details><summary>O site substitui uma consulta com profissional de saúde?</summary><div class="answer"><p>Não. O conteúdo é educativo e resumido. Para orientações individuais sobre alimentação, sono, atividade física ou emoções, procure um profissional de saúde.</p></div></details>
+    <div class="section-title"><span class="tag">Ficou com dúvida?</span><h2>Perguntas que a gente mais ouve</h2></div>
+    <div class="faq">
+      <details><summary>O site substitui uma consulta com profissional de saúde?</summary><div class="answer"><p>Não. O que a gente escreveu é educativo e resumido. Se você precisa de orientação para o seu caso, seja sobre alimentação, sono, atividade física ou emoções, converse com um profissional de saúde.</p></div></details>
       <details><summary>De onde vêm as informações?</summary><div class="answer"><p>De fontes oficiais, como a Organização Mundial da Saúde (OMS) e o Ministério da Saúde do Brasil. Veja a lista completa na página <a href="fontes.html">Fontes</a>.</p></div></details>
-      <details><summary>Meus registros do checklist, água e movimento são enviados para algum lugar?</summary><div class="answer"><p>Não. Ficam salvos apenas no seu navegador, neste aparelho, e são zerados a cada novo dia. O único formulário que envia dados é o da <a href="avaliacao.html">Avaliação</a>, e ele não pede nome, e-mail nem dados pessoais.</p></div></details>
+      <details><summary>Meus registros do checklist, água e movimento são enviados para algum lugar?</summary><div class="answer"><p>Não. Tudo fica guardado só no seu navegador, neste aparelho, e zera a cada novo dia. O único formulário que envia algo é o da <a href="avaliacao.html">Avaliação</a>, e ele não pede nome, e-mail nem dados pessoais.</p></div></details>
       <details><summary>Quanto tempo de atividade física é recomendado para adolescentes?</summary><div class="answer"><p>A OMS recomenda, em média, 60 minutos por dia de atividade física moderada a vigorosa ao longo da semana. Dança, brincadeiras, caminhada e esportes contam.</p></div></details>
       <details><summary>Como funciona o quiz?</summary><div class="answer"><p>São 10 perguntas de múltipla escolha. Depois de cada resposta você vê uma explicação, e no final recebe sua pontuação e pode refazer. <a href="quiz.html">Ir para o quiz →</a></p></div></details>
     </div>
@@ -403,38 +394,38 @@
 <!-- ============ SOBRE ============ -->
 <section id="sobre" class="section">
   <div class="container">
-    <div class="section-title reveal"><span class="tag">Conheça o projeto</span><h2>Sobre o IFsaudavel</h2><p>Informação simples e educativa para incentivar hábitos mais saudáveis no dia a dia.</p></div>
-    <div class="about-grid stagger">
-      <div class="about-card"><h3>🎯 Nosso objetivo</h3><p>Apresentar informações acessíveis sobre alimentação, hidratação, sono, movimento e bem-estar, ajudando os visitantes a refletirem sobre seus hábitos.</p></div>
-      <div class="about-card"><h3>👥 Integrantes</h3>
+    <div class="section-title"><span class="tag">Quem está por trás</span><h2>Sobre o IFsaudavel</h2><p>Um trabalho escolar feito por colegas, com a vontade de explicar saúde de um jeito simples.</p></div>
+    <div class="about-grid">
+      <div class="about-card"><h3>Nosso objetivo</h3><p>Explicar, com palavras simples, o que as fontes oficiais dizem sobre alimentação, hidratação, sono, movimento e bem-estar, para que cada pessoa possa pensar nos próprios hábitos.</p></div>
+      <div class="about-card"><h3>Quem fez este site</h3>
         <ul class="members">
           <li><span class="avatar" aria-hidden="true">MM</span>Miguel Meneses Santos de Oliveira</li>
           <li><span class="avatar" aria-hidden="true">ME</span>Maria Eduarda Silva Melo</li>
           <li><span class="avatar" aria-hidden="true">MF</span>Maria Eduarda Fernandes</li>
         </ul></div>
-      <div class="about-card"><h3>🏫 Instituição</h3><p>Projeto escolar desenvolvido no <strong>Instituto Federal de Sergipe — Campus Lagarto</strong>, com conteúdo baseado em fontes oficiais de saúde.</p><p style="margin-top:.8rem"><a class="text-link" href="fontes.html">Ver fontes e referências →</a></p></div>
+      <div class="about-card"><h3>Onde nasceu</h3><p>No <strong>Instituto Federal de Sergipe, Campus Lagarto</strong>, como projeto escolar. O conteúdo se apoia em fontes oficiais de saúde.</p><p style="margin-top:.8rem"><a class="text-link" href="fontes.html">Ver fontes e referências →</a></p></div>
     </div>
-    <div class="project-cta reveal">
-      <div><h3>Quer testar o que aprendeu?</h3><p>Faça o quiz do IFsaudavel e descubra quantas perguntas você consegue acertar.</p></div>
+    <div class="project-cta">
+      <div><h3>Que tal um quiz rápido?</h3><p>São 10 perguntas, com explicação em cada uma. Dá para fazer em poucos minutos.</p></div>
       <a class="btn light" href="quiz.html">Ir para o quiz →</a>
     </div>
   </div>
 </section>
 
-<div class="health-disclaimer" role="note"><strong>ℹ️ Aviso importante:</strong> o conteúdo do IFsaudavel tem finalidade educativa e não substitui a orientação de profissionais de saúde.</div>
+<div class="health-disclaimer" role="note"><strong>Um lembrete:</strong> o IFsaudavel é educativo e não substitui a conversa com um profissional de saúde.</div>
 </main>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-brand"><img src="https://www.ifs.edu.br/images/Ascom_Lagarto/2023/ABRIL/Marca_IFS_-_Campus_Lagarto_vertical-01.png" alt="IFS Campus Lagarto" onerror="this.style.display='none'"><strong>🌱 IFsaudavel</strong></div>
-        <p>Informação simples e educativa para cuidar melhor de você. Projeto escolar do IFS · Campus Lagarto.</p>
+        <p>Um projeto de estudantes do IFS Campus Lagarto sobre os hábitos do dia a dia. Feito com carinho e com base em fontes oficiais.</p>
       </div>
       <div><h4>Navegue</h4><a href="#inicio">Início</a><a href="#checklist">Checklist</a><a href="quiz.html">Quiz</a><a href="avaliacao.html">Avaliação</a></div>
       <div><h4>Temas</h4><a href="#alimentacao">Alimentação</a><a href="#hidratacao">Hidratação</a><a href="#sono">Sono</a><a href="#movimento">Movimento</a><a href="#bem-estar">Bem-estar</a></div>
       <div><h4>Projeto</h4><a href="#sobre">Sobre</a><a href="fontes.html">Fontes e referências</a><a href="#faq">Perguntas frequentes</a></div>
     </div>
-    <div class="copyright"><span>Projeto escolar · IFS Campus Lagarto · 2026</span><span>Conteúdo educativo — não substitui orientação profissional.</span></div>
+    <div class="copyright"><span>Projeto escolar · IFS Campus Lagarto · 2026</span><span>Conteúdo educativo. Não substitui a orientação de um profissional de saúde.</span></div>
   </div>
 </footer>
 <nav class="mobile-quick-nav" aria-label="Atalhos rápidos">
@@ -445,7 +436,6 @@
 </nav>
 <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo" type="button">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<canvas id="confetti" aria-hidden="true"></canvas>
 <script src="script.js"></script>
 
 </body>
